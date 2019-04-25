@@ -3,12 +3,46 @@ const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt-nodejs');
 
 const formi9Schema = new Schema({
-  username: {
+
+//   • First Name
+//   • Last Name
+//   • Middle Initial
+//   • Address
+//   • DOB
+//   • SSN
+//   • Email
+//   • Phone
+//   • Citizenship (A citizen of the United States/A noncitizen national of the United States/A lawful permanent resident/An alien authorized to work)
+//   • Signature
+//   • Date
+
+// Policy Manual
+//   • Full Name
+//   • Signature
+//   • Date
+
+  firstName: {
     type: String,
     required: true,
     trim: true
   },
-  email: {
+  middleName: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  lastName: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  address: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true,
+  },
+  DOB: {
     type: String,
     required: true,
     unique: true,
@@ -28,24 +62,7 @@ const formi9Schema = new Schema({
   }
 });
 
-// Execute before each user.save() call
-UserSchema.pre('save', function(callback) {
-  let user = this;
 
-  // Break out if the password hasn't changed
-  if (!user.isModified('password')) return callback();
-
-  // Password changed so we need to hash it
-  bcrypt.genSalt(5, function(err, salt) {
-    if (err) return callback(err);
-
-    bcrypt.hash(user.password, salt, null, function(err, hash) {
-      if (err) return callback(err);
-      user.password = hash;
-      callback();
-    });
-  });
-});
 
 UserSchema.methods.verifyPassword = function(password, cb) {
   bcrypt.compare(password, this.password, function(err, isMatch) {
