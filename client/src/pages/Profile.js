@@ -19,15 +19,63 @@ class Profile extends Component {
     });
   }
 
+  handleFormSubmit = event => {
+    event.preventDefault();
+  };
+
+  handleChange = event => {
+    const {name, value} = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  // eslint-disable-next-line no-dupe-class-members
   render() {
     return (
+      <div>
       <div className="container Profile">
         <h1>On the profile page!</h1>
         <p>Username: {this.state.username}</p>
         <p>Email: {this.state.email}</p>
         <Link to="/">Go home</Link>
       </div>
-    )
+      <div className="container">
+
+        <h1>W-4</h1>
+        <form onSubmit={this.handleFormSubmit}>
+          <div className="form-group">
+            <label htmlFor="name">Full Name:</label>
+            <input className="form-control"
+                   placeholder="Name goes here..."
+                   name="name"
+                   type="text"
+                   id="name"
+                   onChange={this.handleChange}/>
+          </div>
+          <div className="form-group">
+            <label htmlFor="ssn">SSN:</label>
+            <input className="form-control"
+                   placeholder="SSN goes here..."
+                   name="ssn"
+                   type="ssn"
+                   id="ssn"
+                   onChange={this.handleChange}/>
+          </div>
+          <div className="form-group">
+            <label htmlFor="pwd">Address:</label>
+            <input className="form-control"
+                   placeholder="Address goes here..."
+                   name="address"
+                   type="address"
+                   id="address"
+                   onChange={this.handleChange}/>
+          </div>
+          <button type="submit" className="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      </div>
+    );
   }
 }
 
