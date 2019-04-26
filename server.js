@@ -77,6 +77,33 @@ app.use(function (err, req, res, next) {
   }
 });
 
+app.get("/api/w4", (req, res) => {
+  db.w4
+   .find({})
+   .then(dbETM => res.json(dbETM))
+   .catch(err => res.json(err));
+ });
+
+app.get("/api/formi9", (req, res) => {
+  db.formi9
+   .find({})
+   .then(dbETM => res.json(dbETM))
+   .catch(err => res.json(err));
+ });
+
+app.get("/api/policymanual", (req, res) => {
+  db.PolicyManual
+   .find({})
+   .then(dbETM => res.json(dbETM))
+   .catch(err => res.json(err));
+ });
+
+app.get("/api/emptrainmanual", (req, res) => {
+  db.EmpTrainManual
+   .find({})
+   .then(dbETM => res.json(dbETM))
+   .catch(err => res.json(err));
+ });
 // Send every request to the React app
 // Define any API routes before this runs
 app.get("*", function(req, res) {
