@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt-nodejs');
 
-const I9Schema = new Schema({
+const formi9Schema = new Schema({
   firstName: {
     type: String,
     required: true,
@@ -91,6 +91,6 @@ const I9Schema = new Schema({
 //   });
 // };
 
-const I9 = mongoose.model('I9', I9Schema);
+const formi9 = mongoose.model('I9', formi9Schema);
 
-module.exports = I9;
+module.exports = formi9; 
