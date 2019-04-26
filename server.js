@@ -78,7 +78,6 @@ app.use(function (err, req, res, next) {
 });
 
 app.get("/api/w4", (req, res) => {
-  // returns of your members in your group as JSON data
   db.w4
    .find({})
    .then(dbETM => res.json(dbETM))
@@ -86,7 +85,6 @@ app.get("/api/w4", (req, res) => {
  });
 
 app.get("/api/formi9", (req, res) => {
-  // returns of your members in your group as JSON data
   db.formi9
    .find({})
    .then(dbETM => res.json(dbETM))
@@ -94,7 +92,6 @@ app.get("/api/formi9", (req, res) => {
  });
 
 app.get("/api/policymanual", (req, res) => {
-  // returns of your members in your group as JSON data
   db.PolicyManual
    .find({})
    .then(dbETM => res.json(dbETM))
@@ -102,7 +99,6 @@ app.get("/api/policymanual", (req, res) => {
  });
 
 app.get("/api/emptrainmanual", (req, res) => {
-  // returns of your members in your group as JSON data
   db.EmpTrainManual
    .find({})
    .then(dbETM => res.json(dbETM))
