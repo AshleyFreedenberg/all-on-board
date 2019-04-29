@@ -5,28 +5,27 @@ const bcrypt = require('bcrypt-nodejs');
 const UserSchema = new Schema({
   firstName: {
     type: String,
-    required: true,
     trim: true
   },
   middleInitial: {
     type: String,
-    required: true,
+
     trim: true
   },
   lastName: {
     type: String,
-    required: true,
+
     trim: true
   },
   address: {
     type: String,
-    required: true,
+
     trim: true
   },
 
   email: {
     type: String,
-    required: true,
+   
     unique: true,
     trim: true,
     lowercase: true,
@@ -36,13 +35,13 @@ const UserSchema = new Schema({
   },
   phone: {
     type: String,
-    required: true,
+
     trim: true
   },
   
   gender: {
     type: String,
-    required: true,
+
     trim: true
   },
   createdAt: {
@@ -51,16 +50,13 @@ const UserSchema = new Schema({
   },
   DateofBirth: {
     type: Date,
-    required: true,
   },
   SSN: {
     type: String,
-    required: true,
     trim: true
   },
   preferredName: {
     type: String,
-    required: false,
     trim: true
   },
   password: {
