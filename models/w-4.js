@@ -31,13 +31,11 @@ const w4Schema = new Schema({
     type: Number,
     trim: true
  },
-
   signature: {
     type: String,
     required: true,
     trim: true
   },
-
     createdAt: {
     type: Date,
     default: Date.now
