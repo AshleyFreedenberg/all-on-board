@@ -6,9 +6,8 @@ import { Link } from 'react-router-dom';
 class Profile extends Component {
 
   state = {
-    firstName: "",
-    lastName: "",
-    email: ""
+    username: "",
+    email: ""  
   };
 
   componentDidMount() {
