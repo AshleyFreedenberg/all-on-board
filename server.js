@@ -64,6 +64,14 @@ app.post('/api/form', (req, res) => {
     .catch(err => res.status(400).json(err));
 });
 
+app.get("/api/:formtype", (req, res) => {
+    db.File
+        .findById(req.params.formType)
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
+    },
+   );
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));

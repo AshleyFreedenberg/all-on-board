@@ -12,6 +12,9 @@ const fileSchema = new Schema({
         type: Date,
         default: Date.now
     },
+    userId: {
+        type: String,
+    },
     firstName: {
         type: String,
         trim: true,
