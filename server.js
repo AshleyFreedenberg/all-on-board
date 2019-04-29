@@ -104,6 +104,12 @@ app.get("/api/emptrainmanual", (req, res) => {
    .then(dbETM => res.json(dbETM))
    .catch(err => res.json(err));
  });
+
+//  app.get("/api/forms/:formType", (req, res) => {
+//    db.Form.find({
+//      formType: req.params.formType
+//    }).then(dbForms => res.json(dbForms))
+//  })
 // Send every request to the React app
 // Define any API routes before this runs
 app.get("*", function(req, res) {
