@@ -7,5 +7,6 @@ export default {
   // sign up a user to our service
   signUpUser: (username, email, password) => {
     return axios.post('api/signup', {username: username, email: email, password: password});
-  }
+  },
+  // add route to post form (accepts an object with data to post)
 };
