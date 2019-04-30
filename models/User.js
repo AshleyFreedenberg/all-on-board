@@ -26,50 +26,6 @@ const UserSchema = new Schema({
     type: Date,
     default: Date.now
   }
-  // firstName: {
-  //   type: String,
-  //   required: true,
-  //   trim: true
-  // },
-  // middleInitial: {
-  //   type: String,
-  //   required: true,
-  //   trim: true
-  // },
-  // lastName: {
-  //   type: String,
-  //   required: true,
-  //   trim: true
-  // },
-  // address: {
-  //   type: String,
-  //   required: true,
-  //   trim: true
-  // },
-  // phone: {
-  //   type: String,
-  //   required: true,
-  //   trim: true
-  // },
-  // gender: {
-  //   type: String,
-  //   required: true,
-  //   trim: true
-  // },
-  // dateOfBirth: {
-  //   type: Date,
-  //   required: true,
-  // },
-  // SSN: {
-  //   type: String,
-  //   required: true,
-  //   trim: true
-  // },
-  // preferredName: {
-  //   type: String,
-  //   required: false,
-  //   trim: true
-  // },
 });
 
 // Execute before each user.save() call
