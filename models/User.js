@@ -8,6 +8,24 @@ const UserSchema = new Schema({
     required: true,
     trim: true
   },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true,
+    lowercase: true,
+    index: {
+      unique: true
+    }
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  }
   // firstName: {
   //   type: String,
   //   required: true,
@@ -28,34 +46,17 @@ const UserSchema = new Schema({
   //   required: true,
   //   trim: true
   // },
-
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-    trim: true,
-    lowercase: true,
-    index: {
-      unique: true
-    }
-  },
   // phone: {
   //   type: String,
   //   required: true,
   //   trim: true
   // },
-  
   // gender: {
   //   type: String,
   //   required: true,
   //   trim: true
   // },
-  createdAt: {
-    type: Date,
-    default: Date.now
-  },
- 
-  // DateofBirth: {
+  // dateOfBirth: {
   //   type: Date,
   //   required: true,
   // },
@@ -68,11 +69,7 @@ const UserSchema = new Schema({
   //   type: String,
   //   required: false,
   //   trim: true
-  },
-  password: {
-    type: String,
-    required: true
-  },
+  // },
 });
 
 // Execute before each user.save() call
