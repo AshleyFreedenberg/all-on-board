@@ -6,9 +6,8 @@ import { Link } from 'react-router-dom';
 class Profile extends Component {
 
   state = {
-    firstName: "",
-    lastName: "",
-    email: ""
+    username: "",
+    email: ""  
   };
 
   componentDidMount() {
@@ -22,6 +21,20 @@ class Profile extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
+    // get user id from props
+    // (this.props.user.id)
+    // create request body
+    // send request
+    // handle response
+    /* 
+    {
+      email: "asdf",
+      foo: "shoe",
+      userId: this.props.user.id,
+      ...
+
+    }
+    */
   };
 
   handleChange = event => {

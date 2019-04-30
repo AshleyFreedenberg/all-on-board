@@ -5,7 +5,6 @@ const path = require('path');
 const mongoose = require('mongoose');
 const morgan = require('morgan'); // used to see requests
 const db = require('./models');
-const routes = require("./routes");
 
 const PORT = process.env.PORT || 3001;
 
@@ -60,11 +59,24 @@ app.get('/api/user/:id', isAuthenticated, (req, res) => {
   }).catch(err => res.status(400).send(err));
 });
 
+app.post('/api/form', (req, res) => {
+  db.File.create(req.body)
+    .then(data => res.json(data))
+    .catch(err => res.status(400).json(err));
+});
+
+app.get("/api/:formtype", (req, res) => {
+    db.File
+        .findById(req.params.formType)
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
+    },
+   );
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-app.use(routes);
 
 app.get('/', isAuthenticated /* Using the express jwt MW here */, (req, res) => {
   res.send('You are authenticated'); //Sending some response when authenticated
@@ -79,34 +91,36 @@ app.use(function (err, req, res, next) {
     next(err);
   }
 });
+// post route for forms 
 
-app.get("/api/w4", (req, res) => {
-  db.w4
-   .find({})
-   .then(dbETM => res.json(dbETM))
-   .catch(err => res.json(err));
- });
 
-app.get("/api/formi9", (req, res) => {
-  db.formi9
-   .find({})
-   .then(dbETM => res.json(dbETM))
-   .catch(err => res.json(err));
- });
+// app.get("/api/w4", (req, res) => {
+//   db.w4
+//    .find({})
+//    .then(dbETM => res.json(dbETM))
+//    .catch(err => res.json(err));
+//  });
 
-app.get("/api/policymanual", (req, res) => {
-  db.PolicyManual
-   .find({})
-   .then(dbETM => res.json(dbETM))
-   .catch(err => res.json(err));
- });
+// app.get("/api/formi9", (req, res) => {
+//   db.formi9
+//    .find({})
+//    .then(dbETM => res.json(dbETM))
+//    .catch(err => res.json(err));
+//  });
 
-app.get("/api/emptrainmanual", (req, res) => {
-  db.EmpTrainManual
-   .find({})
-   .then(dbETM => res.json(dbETM))
-   .catch(err => res.json(err));
- });
+// app.get("/api/policymanual", (req, res) => {
+//   db.PolicyManual
+//    .find({})
+//    .then(dbETM => res.json(dbETM))
+//    .catch(err => res.json(err));
+//  });
+
+// app.get("/api/emptrainmanual", (req, res) => {
+//   db.EmpTrainManual
+//    .find({})
+//    .then(dbETM => res.json(dbETM))
+//    .catch(err => res.json(err));
+//  });
 // Send every request to the React app
 // Define any API routes before this runs
 app.get("*", function(req, res) {
