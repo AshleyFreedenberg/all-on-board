@@ -5,6 +5,8 @@ const path = require('path');
 const mongoose = require('mongoose');
 const morgan = require('morgan'); // used to see requests
 const db = require('./models');
+const routes = require("./routes");
+
 const PORT = process.env.PORT || 3001;
 
 const isAuthenticated = require("./config/isAuthenticated");
@@ -62,6 +64,7 @@ app.get('/api/user/:id', isAuthenticated, (req, res) => {
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+app.use(routes);
 
 app.get('/', isAuthenticated /* Using the express jwt MW here */, (req, res) => {
   res.send('You are authenticated'); //Sending some response when authenticated
