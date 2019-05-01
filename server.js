@@ -65,13 +65,17 @@ app.post('/api/form', (req, res) => {
     .catch(err => res.status(400).json(err));
 });
 
+
+//get forms by user
 app.get("/api/:formtype", (req, res) => {
-    db.File
-        .findById(req.params.formType)
-        .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err));
-    },
-   );
+    db.File.findById(req.params.id).then(data => {
+        if(data) {
+          res.json(data);
+        } else {
+          res.status(404).send({success: false, message: 'No forms found'});
+        }
+      }).catch(err => res.status(400).send(err));
+    });
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
