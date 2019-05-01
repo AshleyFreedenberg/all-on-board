@@ -12,7 +12,9 @@ import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Navbar from './components/Navbar';
-import Footer from './components/Footer'
+import Footer from './components/Footer';
+// import Slider from './components/Slider';
+import CarouselContainer from './components/CarouselContainer';
 
 
 // Here is if we have an id_token in localStorage
@@ -25,7 +27,9 @@ ReactDOM.render(
     <Router>
         <div>
             <Navbar />
-            <Route exact path="/" component={App} />
+            {/* <Slider /> */}
+            <Route exact path="/" component={CarouselContainer} />
+            {/* <Route exact path="/" component={App} /> */}
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/profile" component={Profile} />
