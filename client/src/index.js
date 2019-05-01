@@ -12,7 +12,12 @@ import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Navbar from './components/Navbar';
-// import Footer from './components/Footer'
+import Footer from './components/Footer';
+// import ProfileForm from "./components/ProfileForm";
+// import W-4Form from "./components/W-4Form";
+// import I-9Form from "./components/I-9Form";
+// import PolicyManual from "./components/PolicyManual";
+// import EmpTrainManual.jsForm from "./components/EmpTrainManual";
 
 
 // Here is if we have an id_token in localStorage
