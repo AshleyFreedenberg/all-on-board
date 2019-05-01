@@ -61,7 +61,7 @@ class Profile extends Component {
         <div className="container Profile">
           <h1>Welcome Aboard {this.state.username}!</h1>
 
-          <Link to="/">Go home</Link>
+          <Link to="/"><button type="submit" className="btn btn-primary">Submit</button></Link>
         </div>
         <div className="profile container">
           <h1>Profile</h1>
@@ -160,7 +160,7 @@ class Profile extends Component {
                 id="preferredName"
                 onChange={this.handleChange} />
             </div>
-            <button type="submit" className="btn btn-primary">Submit</button>
+            <button type="submit" className="btn btn-primary profile-sub-button">Submit</button>
           </form>
 
         </div>

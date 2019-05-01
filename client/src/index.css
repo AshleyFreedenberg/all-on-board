@@ -4,3 +4,7 @@ body {
   font-family: sans-serif;
   height: 100%;
 }
+
+.profile-sub-button{
+  margin-bottom: 20px;
+}
