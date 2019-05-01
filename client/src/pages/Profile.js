@@ -16,12 +16,13 @@ class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      startDate: new Date()
+      startDate: new Date(),
+      formType: "profile"
     };
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(date) {
+  handleChangeDate = date => {
     this.setState({
       startDate: date
     });
@@ -38,40 +39,32 @@ class Profile extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    // get user id from props
-    // (this.props.user.id)
-    // create request body
-    // send request
-    // handle response
-    /* 
-    {
-      email: "asdf",
-      foo: "shoe",
-      userId: this.props.user.id,
-      ...
-
-    }
-    */
+    console.log(this.state);
+    API.setProfile(this.state).then(res => {
+      alert("Thank you for completing your profile!")
+    })
   };
 
   handleChange = event => {
     const { name, value } = event.target;
+    // const name = event.target.name;
+    // const value = event.target.value
     this.setState({
       [name]: value
     });
+    console.log(this.state)
   };
   // eslint-disable-next-line no-dupe-class-members
   render() {
     return (
       <div>
         <div className="container Profile">
-          <h1>On the profile page!</h1>
-          <p>Username: {this.state.username}</p>
-          <p>Email: {this.state.email}</p>
+          <h1>Welcome Aboard {this.state.username}!</h1>
+
           <Link to="/">Go home</Link>
         </div>
         <div className="profile container">
-          <h1>Profile</h1>
+          <h1>Dashboard</h1>
           <form onSubmit={this.handleFormSubmit}>
             <div className="form-group">
               <label htmlFor="firstName">First Name:</label>
@@ -101,14 +94,15 @@ class Profile extends Component {
                 onChange={this.handleChange} />
             </div>
             <div className="form-group">
-            <label htmlFor="DOB">Date of Birth:</label>
-            <br></br>
+              <label htmlFor="DOB">Date of Birth:</label>
+              <br></br>
               <DatePicker className="form-control"
                 placeholder="DOB goes here..."
                 name="DOB"
                 type="text"
                 id="DOB"
                 onChange={this.handleChange}
+                onChange={this.handleChangeDate}
                 selected={this.state.startDate}
                 peekNextMonth
                 showMonthDropdown
@@ -168,47 +162,7 @@ class Profile extends Component {
             </div>
             <button type="submit" className="btn btn-primary">Submit</button>
           </form>
-          <br></br>
-          <h1>W-4</h1>
-          <form onSubmit={this.handleFormSubmit}>
-            <div className="form-group">
-              <label htmlFor="firstName">First Name:</label>
-              <input className="form-control"
-                placeholder="First name goes here..."
-                name="firstName"
-                type="text"
-                id="firstName"
-                onChange={this.handleChange} />
-            </div>
-            <div className="form-group">
-              <label htmlFor="lastName">Last Name:</label>
-              <input className="form-control"
-                placeholder="Last name goes here..."
-                name="lastName"
-                type="text"
-                id="lastName"
-                onChange={this.handleChange} />
-            </div>
-            <div className="form-group">
-              <label htmlFor="ssn">SSN:</label>
-              <input className="form-control"
-                placeholder="SSN goes here..."
-                name="ssn"
-                type="ssn"
-                id="ssn"
-                onChange={this.handleChange} />
-            </div>
-            <div className="form-group">
-              <label htmlFor="pwd">Address:</label>
-              <input className="form-control"
-                placeholder="Address goes here..."
-                name="address"
-                type="address"
-                id="address"
-                onChange={this.handleChange} />
-            </div>
-            <button type="submit" className="btn btn-primary">Submit</button>
-          </form>
+
         </div>
       </div >
     );
