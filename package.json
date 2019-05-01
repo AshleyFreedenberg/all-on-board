@@ -27,6 +27,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.5.3",
     "morgan": "^1.9.1",
-    "react-datepicker": "^2.5.0"
+    "react-datepicker": "^2.5.0",
+    "react-signature-canvas": "^1.0.1"
   }
 }

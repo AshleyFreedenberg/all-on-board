@@ -11,7 +11,9 @@ import axios from "axios";
 import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
-import Navbar from './components/Navbar';
+import Navbar from './components/Navbar';   
+// import SignaturePad from './SignaturePad';
+
 
 // Here is if we have an id_token in localStorage
 if(localStorage.getItem("id_token")) {
@@ -32,3 +34,4 @@ ReactDOM.render(
     , document.getElementById('root')
 );
 registerServiceWorker();
+// export default SignaturePad;
