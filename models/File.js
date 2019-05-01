@@ -18,27 +18,22 @@ const fileSchema = new Schema({
     firstName: {
         type: String,
         trim: true,
-      
     },
     middleInitial: {
         type: String,
         trim: true,
-      
     },
     lastName: {
         type: String,
         trim: true,
-       
     },
     address: {
         type: String,
         trim: true,
-     
     },
     phone: {
         type: String,
         trim: true,
-        trim: true
     },
     gender: {
         type: String,
