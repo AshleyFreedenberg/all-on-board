@@ -6,7 +6,12 @@ export default {
   },
   // sign up a user to our service
   signUpUser: (username, email, password) => {
-    return axios.post('api/signup', {username: username, email: email, password: password});
+    return axios.post('/api/signup', {username: username, email: email, password: password});
   },
-  // add route to post form (accepts an object with data to post)
+  // route to set profile data for employee
+  setProfile: (formDataObj) => {
+    return axios.post('/api/form', formDataObj);
+  },
 };
+
+// API.setProfile({firstName: "Jay", lastName: "Hunter"})
