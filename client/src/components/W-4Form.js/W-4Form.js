@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import withAuth from '../withAuth';
 import API from '../../utils/API';
-import { Link } from 'react-router-dom';
 
 import DatePicker from "react-datepicker";
 import "./node_modules/react-datepicker/dist/react-datepicker.css";
@@ -11,14 +10,13 @@ class Profile extends Component {
   state = {
     username: "",
     email: "",
-    formType: "profile"
   };
 
   constructor(props) {
     super(props);
     this.state = {
       startDate: new Date(),
-      formType: "profile"
+      formType: "w-4"
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -33,7 +31,10 @@ class Profile extends Component {
     API.getUser(this.props.user.id).then(res => {
       this.setState({
         username: res.data.username,
-        email: res.data.email
+        email: res.data.email,
+        firstName: res.data.firstName,
+        lastName: res.data.lastName,
+        address: res.data.address
       })
     });
   }
