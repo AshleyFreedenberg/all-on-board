@@ -10,7 +10,8 @@ class Profile extends Component {
 
   state = {
     username: "",
-    email: ""
+    email: "",
+    formType: "profile"
   };
 
   constructor(props) {
@@ -21,7 +22,7 @@ class Profile extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(date) {
+  handleChangeDate = date => {
     this.setState({
       startDate: date
     });
@@ -108,7 +109,7 @@ class Profile extends Component {
                 name="DOB"
                 type="text"
                 id="DOB"
-                onChange={this.handleChange}
+                onChange={this.handleChangeDate}
                 selected={this.state.startDate}
                 peekNextMonth
                 showMonthDropdown
@@ -169,7 +170,7 @@ class Profile extends Component {
             <button type="submit" className="btn btn-primary">Submit</button>
           </form>
           <br></br>
-          <h1>W-4</h1>
+          {/* <h1>W-4</h1>
           <form onSubmit={this.handleFormSubmit}>
             <div className="form-group">
               <label htmlFor="firstName">First Name:</label>
@@ -208,7 +209,7 @@ class Profile extends Component {
                 onChange={this.handleChange} />
             </div>
             <button type="submit" className="btn btn-primary">Submit</button>
-          </form>
+          </form> */}
         </div>
       </div >
     );
