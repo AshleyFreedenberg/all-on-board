@@ -3,9 +3,10 @@ import withAuth from '../withAuth';
 import API from '../../utils/API';
 
 import DatePicker from "react-datepicker";
-import "./node_modules/react-datepicker/dist/react-datepicker.css";
+import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
+import SignatureCanvas from 'react-signature-canvas'
 
-class Profile extends Component {
+class W4Form extends Component {
 
   state = {
     username: "",
@@ -16,7 +17,8 @@ class Profile extends Component {
     super(props);
     this.state = {
       startDate: new Date(),
-      formType: "w-4"
+      formType: "w-4",
+      completed: true 
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -77,12 +79,27 @@ class Profile extends Component {
               onChange={this.handleChange} />
           </div>
           <div className="form-group">
-            <label htmlFor="lastName">Last Name:</label>
+            <label htmlFor="married">Marital Status:
+              <br></br>
+              <select className="form-control"
+                name="married"
+                type="married"
+                id="married"
+                onChange={this.handleChange}>
+                <option>Select</option>
+                <option>Single</option>
+                <option>Married</option>
+                <option>Married, but withhold at higher Single rate (married filling separately)</option>
+              </select>
+            </label>
+          </div>
+          <div className="form-group">
+            <label htmlFor="numberofAllowances">Total number of allowances you’re claiming:</label>
             <input className="form-control"
-              placeholder="Last name goes here..."
-              name="lastName"
+              placeholder="Allowance Number goes here..."
+              name="numberofAllowances"
               type="text"
-              id="lastName"
+              id="numberofAllowances"
               onChange={this.handleChange} />
           </div>
           <div className="form-group">
@@ -93,6 +110,23 @@ class Profile extends Component {
               type="address"
               id="address"
               onChange={this.handleChange} />
+          </div>
+          <div className="form-group">
+            <label htmlFor="date">Today's Date:</label>
+            <br></br>
+            <DatePicker className="form-control"
+              placeholder="Today's Date goes here..."
+              name="date"
+              type="text"
+              id="date"
+              onChange={this.handleChange}
+              onChange={this.handleChangeDate}
+              selected={this.state.startDate}
+              peekNextMonth
+              showMonthDropdown
+              showYearDropdown
+              dropdownMode="select"
+            />
           </div>
           <button type="submit" className="btn btn-primary">Submit</button>
         </form>
@@ -144,15 +178,6 @@ class Profile extends Component {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="email">Email:</label>
-            <input className="form-control"
-              placeholder="Email goes here..."
-              name="email"
-              type="text"
-              id="email"
-              onChange={this.handleChange} />
-          </div>
-          <div className="form-group">
             <label htmlFor="phone">Phone Number:</label>
             <input className="form-control"
               placeholder="Phone Number goes here..."
@@ -170,38 +195,18 @@ class Profile extends Component {
               id="address"
               onChange={this.handleChange} />
           </div>
-          <div className="form-group">
-            <label htmlFor="gender">Gender:
-              <br></br>
-              <select className="form-control"
-                name="gender"
-                type="gender"
-                id="gender"
-                onChange={this.handleChange}>
-                <option>Select</option>
-                <option>Male</option>
-                <option>Female</option>
-              </select>
-            </label>
-          </div>
-          <div className="form-group">
-            <label htmlFor="preferredName">Preferred Name:</label>
-            <input className="form-control"
-              placeholder="Preferred Name goes here..."
-              name="preferredName"
-              type="preferredName"
-              id="preferredName"
-              onChange={this.handleChange} />
+          <div>
+            <SignatureCanvas penColor='blue'
+              canvasProps={{ width: 500, height: 200, className: 'sigCanvas', style: { border: 'solid 1px black' } }} />
           </div>
           <button type="submit" className="btn btn-primary">Submit</button>
         </form>
       </div>
-      </div >
     );
   }
 }
 
-export default withAuth(Profile);
+export default withAuth(W4Form);
 
 
 
