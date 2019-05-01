@@ -12,6 +12,8 @@ import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer'
+
 
 // Here is if we have an id_token in localStorage
 if(localStorage.getItem("id_token")) {
@@ -23,10 +25,11 @@ ReactDOM.render(
     <Router>
         <div>
             <Navbar />
-            <Route exact path="/" component={App} />
+            {/* <Route exact path="/" component={App} /> */}
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/profile" component={Profile} />
+            <Footer />
         </div>
     </Router>
     , document.getElementById('root')

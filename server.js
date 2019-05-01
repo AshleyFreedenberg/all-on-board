@@ -58,15 +58,13 @@ app.get('/api/user/:id', isAuthenticated, (req, res) => {
     }
   }).catch(err => res.status(400).send(err));
 });
-
+//routes to post form data
 app.post('/api/form', (req, res) => {
   db.File.create(req.body)
     .then(data => res.json(data))
     .catch(err => res.status(400).json(err));
 });
-
-
-//get forms by user
+//route to get form data
 app.get("/api/:formtype", (req, res) => {
     db.File.findById(req.params.id).then(data => {
         if(data) {
@@ -76,6 +74,13 @@ app.get("/api/:formtype", (req, res) => {
         }
       }).catch(err => res.status(400).send(err));
     });
+
+   app.get("/api/form",  (req, res) => {
+     db.File
+     .find({})
+     .then(dbFile => res.json(dbFile))
+     .catch(err => res.status(422).json(err));
+   });
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -95,36 +100,19 @@ app.use(function (err, req, res, next) {
     next(err);
   }
 });
-// post route for forms 
-
-
-// app.get("/api/w4", (req, res) => {
-//   db.w4
+// //post route for posting form data
+// app.post("/api/form/formType" (req, res) => {
+//   db.
 //    .find({})
 //    .then(dbETM => res.json(dbETM))
 //    .catch(err => res.json(err));
 //  });
 
-// app.get("/api/formi9", (req, res) => {
-//   db.formi9
-//    .find({})
-//    .then(dbETM => res.json(dbETM))
-//    .catch(err => res.json(err));
-//  });
 
-// app.get("/api/policymanual", (req, res) => {
-//   db.PolicyManual
-//    .find({})
-//    .then(dbETM => res.json(dbETM))
-//    .catch(err => res.json(err));
-//  });
 
-// app.get("/api/emptrainmanual", (req, res) => {
-//   db.EmpTrainManual
-//    .find({})
-//    .then(dbETM => res.json(dbETM))
-//    .catch(err => res.json(err));
-//  });
+
+
+
 // Send every request to the React app
 // Define any API routes before this runs
 app.get("*", function(req, res) {
