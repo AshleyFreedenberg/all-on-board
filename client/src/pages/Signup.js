@@ -22,6 +22,7 @@ class Signup extends Component {
         // once the user has signed up
         // send them to the login page
         this.props.history.replace('/login');
+        // this.props.history.replace('/profile');
       })
       .catch(err => alert(err));
   };
