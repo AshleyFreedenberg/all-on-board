@@ -13,12 +13,11 @@ import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import W4Form from "./components/W4Form";
 // import ProfileForm from "./components/ProfileForm";
-// import W-4Form from "./components/W-4Form";
 // import I-9Form from "./components/I-9Form";
 // import PolicyManual from "./components/PolicyManual";
 // import EmpTrainManual.jsForm from "./components/EmpTrainManual";
-
 
 // Here is if we have an id_token in localStorage
 if(localStorage.getItem("id_token")) {
@@ -30,7 +29,7 @@ ReactDOM.render(
     <Router>
         <div>
             <Navbar />
-            {/* <Route exact path="/" component={App} /> */}
+            <Route exact path="/" component={W4Form} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/profile" component={Profile} />

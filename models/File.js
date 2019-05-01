@@ -52,7 +52,7 @@ const fileSchema = new Schema({
         trim: true
     },
     married: {
-        type: Boolean,
+        type: String,
     },
     numberofAllowances: {
         type: Number,
