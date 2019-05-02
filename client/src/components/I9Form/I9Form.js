@@ -29,7 +29,7 @@ class I9Form extends Component {
       startDate: date
     });
   }
-
+  
   componentDidMount() {
     API.getUser(this.props.user.id).then(res => {
       this.setState({
@@ -49,7 +49,7 @@ class I9Form extends Component {
     event.preventDefault();
     console.log(this.state);
     API.setProfile(this.state).then(res => {
-      alert("Thank you for completing your profile!")
+      alert("Thank you for completing your I-9 Form!")
     })
   };
 
@@ -70,9 +70,9 @@ class I9Form extends Component {
   // eslint-disable-next-line no-dupe-class-members
   render() {
     return (
-      <div className="profile container">
-        <h1>I9 Form</h1>
-        <h4>Below is information needed to complete your I9 Form</h4>
+      <div className="container">
+        <h1>I-9 Form</h1>
+        <h4>Below is information needed to complete your I-9 Form</h4>
         <p>First Name: {this.state.firstName}</p>
         <p>Middle Initial: {this.state.middleInitial}</p>
         <p>Last Name: {this.state.lastName}</p>
@@ -110,6 +110,7 @@ class I9Form extends Component {
           <div>
           <button className="clearButton" onClick={this.clearForm}>Clear</button>
           </div>
+          <br></br>
           <div className="form-group">
             <label htmlFor="date">Today's Date:</label>
             <br></br>

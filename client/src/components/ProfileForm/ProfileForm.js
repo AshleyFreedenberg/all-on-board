@@ -60,7 +60,7 @@ class ProfileForm extends Component {
   // eslint-disable-next-line no-dupe-class-members
   render() {
     return (
-        <div className="profile container">
+        <div className="container">
           <h1>Profile</h1>
           <form onSubmit={this.handleFormSubmit}>
             <div className="form-group">
