@@ -133,6 +133,9 @@ class W4Form extends Component {
             <SignatureCanvas penColor='blue'
               canvasProps={{ width: 500, height: 200, className: 'sigCanvas', style: { border: 'solid 1px black' } }} />
           </div>
+          <div>
+          <button className="clearButton">Clear</button>
+          </div>
           <div className="form-group">
             <label htmlFor="date">Today's Date:</label>
             <br></br>
