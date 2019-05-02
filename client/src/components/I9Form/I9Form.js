@@ -6,7 +6,7 @@ import DatePicker from "react-datepicker";
 import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
 import SignatureCanvas from 'react-signature-canvas'
 
-class W4Form extends Component {
+class I9Form extends Component {
 
   state = {
     username: "",
@@ -17,7 +17,7 @@ class W4Form extends Component {
     super(props);
     this.state = {
       startDate: new Date(),
-      formType: "w-4",
+      formType: "i-9",
       completed: true 
     };
     this.handleChange = this.handleChange.bind(this);
@@ -32,12 +32,14 @@ class W4Form extends Component {
   componentDidMount() {
     API.getUser(this.props.user.id).then(res => {
       this.setState({
-        username: res.data.username,
-        email: res.data.email,
         firstName: res.data.firstName,
         middleInitial: res.data.middleInitial,
         lastName: res.data.lastName,
-        address: res.data.address
+        address: res.data.address,
+        dateOfBirth: res.data.dateOfBirth,
+        SSN: res.data.SSN,
+        email: res.data.email,
+        phone: res.data.phone
       })
     });
   }
@@ -69,61 +71,25 @@ class W4Form extends Component {
         <p>Middle Initial: {this.state.middleInitial}</p>
         <p>Last Name: {this.state.lastName}</p>
         <p>Address: {this.state.address}</p>
+        <p>DOB: {this.state.dateOfBirth}</p>
+        <p>SSN: {this.state.SSN}</p>
+        <p>Email: {this.state.email}</p>
+        <p>Phone: {this.state.phone}</p>
 
         <form onSubmit={this.handleFormSubmit}>
-          <div className="form-group">
-            <label htmlFor="SSN">2. SSN:</label>
-            <input className="form-control"
-              placeholder="SSN goes here..."
-              name="SSN"
-              type="text"
-              id="SSN"
-              onChange={this.handleChange} />
-          </div>
-          <div className="form-group">
-            <label htmlFor="married">3. Marital Status:
+        <div className="form-group">
+            <label htmlFor="citizenship">I attest, under penalty of perjury, that I am:
               <br></br>
               <select className="form-control"
-                name="married"
-                type="married"
-                id="married"
-                onChange={this.handleChange}>
-                <option>Select</option>
-                <option>Single</option>
-                <option>Married</option>
-                <option>Married, but withhold at higher Single rate (married filling separately)</option>
-              </select>
-            </label>
-          </div>
-          <div className="form-group">
-            <label htmlFor="numberofAllowances"> 5. Total number of allowances you’re claiming:</label>
-            <input className="form-control"
-              placeholder="Allowance Number goes here..."
-              name="numberofAllowances"
-              type="text"
-              id="numberofAllowances"
-              onChange={this.handleChange} />
-          </div>
-          <div className="form-group">
-            <label htmlFor="additionalAmount"> 6. Additional amount, if any, you want withheld from each paycheck:</label>
-            <input className="form-control"
-              placeholder="Additional amount, goes here... (0.00 format)"
-              name="additionalAmount"
-              type="text"
-              id="additionalAmount"
-              onChange={this.handleChange} />
-          </div>
-          <div className="form-group">
-            <label htmlFor="exempt">7. I claim exemption from withholding for 2019, and I certify that I meet both of the conditions for exemption:
-              <br></br>
-              <select className="form-control"
-                name="exempt"
+                name="citizenship"
                 type="text"
-                id="exempt"
+                id="citizenship"
                 onChange={this.handleChange}>
                 <option>Select</option>
-                <option>Exempt</option>
-                <option>Non-Exempt</option>
+                <option>1. A citizen of the United States</option>
+                <option>2. A noncitizen national of the United States (See instructions)</option>
+                <option>3. A lawful permanent resident</option>
+                <option>4. An alien authorized to work</option>
               </select>
             </label>
           </div>
@@ -157,7 +123,7 @@ class W4Form extends Component {
   }
 }
 
-export default withAuth(W4Form);
+export default withAuth(I9Form);
 
 
 
