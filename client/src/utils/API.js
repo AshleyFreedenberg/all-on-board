@@ -12,6 +12,8 @@ export default {
   setProfile: (formDataObj) => {
     return axios.post('/api/form', formDataObj);
   },
+  getFile: (id) => {
+    return axios.get(`/api/user/${id}`);
+  },
 };
 
-// API.setProfile({firstName: "Jay", lastName: "Hunter"})

@@ -31,6 +31,14 @@ class W4Form extends Component {
 
   componentDidMount() {
     API.getUser(this.props.user.id).then(res => {
+      console.log(this.props.user.id);
+      this.setState({
+        username: res.data.username,
+        email: res.data.email,
+      })
+    });
+    API.getFile(this.props.user.id).then(res => {
+      console.log(this.props.user.id);
       this.setState({
         username: res.data.username,
         email: res.data.email,

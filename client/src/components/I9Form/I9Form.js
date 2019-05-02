@@ -65,7 +65,7 @@ class I9Form extends Component {
   render() {
     return (
       <div className="profile container">
-        <h1>W-4 Form</h1>
+        <h1>I-9 Form</h1>
         <h4>Below is information needed to complete your W-4 Form</h4>
         <p>First Name: {this.state.firstName}</p>
         <p>Middle Initial: {this.state.middleInitial}</p>

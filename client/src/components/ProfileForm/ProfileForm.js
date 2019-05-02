@@ -18,7 +18,8 @@ class ProfileForm extends Component {
     this.state = {
       startDate: new Date(),
       formType: "profile",
-      usesrId: this.props.user.id
+      userId: this.props.user.id,
+      completed: true
 
     };
     this.handleChange = this.handleChange.bind(this);
