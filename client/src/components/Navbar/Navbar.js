@@ -45,7 +45,6 @@ class Navbar extends Component {
                 <div className="container">
 
 
-
                     <Link to="/"><img src={aob} className="logo" alt="logo" /></Link>
 
 
@@ -57,12 +56,12 @@ class Navbar extends Component {
                         </ul>
                         {this.showNavigation()}
                      
-                    </div>
-                    
+                    </div> 
                 </div>
 
-                
             </nav>
+
+
           
         )
     }
