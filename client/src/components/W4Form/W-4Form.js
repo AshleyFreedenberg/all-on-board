@@ -4,6 +4,7 @@ import API from '../../utils/API';
 
 import DatePicker from "react-datepicker";
 import "./node_modules/react-datepicker/dist/react-datepicker.css";
+import SignatureCanvas from 'react-signature-canvas'
 
 class Profile extends Component {
 
@@ -170,33 +171,14 @@ class Profile extends Component {
               id="address"
               onChange={this.handleChange} />
           </div>
-          <div className="form-group">
-            <label htmlFor="gender">Gender:
-              <br></br>
-              <select className="form-control"
-                name="gender"
-                type="gender"
-                id="gender"
-                onChange={this.handleChange}>
-                <option>Select</option>
-                <option>Male</option>
-                <option>Female</option>
-              </select>
-            </label>
-          </div>
-          <div className="form-group">
-            <label htmlFor="preferredName">Preferred Name:</label>
-            <input className="form-control"
-              placeholder="Preferred Name goes here..."
-              name="preferredName"
-              type="preferredName"
-              id="preferredName"
-              onChange={this.handleChange} />
+          <div>
+          <SignatureCanvas penColor='blue' 
+              canvasProps={{ width: 500, height: 200, className: 'sigCanvas', style: { border: 'solid 1px black'} }} />
           </div>
           <button type="submit" className="btn btn-primary">Submit</button>
         </form>
       </div>
-      </div >
+     
     );
   }
 }
