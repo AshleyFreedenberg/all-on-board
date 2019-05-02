@@ -10,7 +10,8 @@ class ProfileForm extends Component {
   state = {
     username: "",
     email: "",
-    formType: "profile"
+    formType: "profile",
+    userId: ""
   };
 
   constructor(props) {
@@ -32,7 +33,8 @@ class ProfileForm extends Component {
     API.getUser(this.props.user.id).then(res => {
       this.setState({
         username: res.data.username,
-        email: res.data.email
+        email: res.data.email,
+        userId: res.data.userId
       })
     });
   }

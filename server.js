@@ -64,9 +64,15 @@ app.post('/api/form', (req, res) => {
     .then(data => res.json(data))
     .catch(err => res.status(400).json(err));
 });
+//test route
+app.post('/api/form', (req, res) => {
+  db.File.create(req.body)
+    .then(data => res.json(data))
+    .catch(err => res.status(400).json(err));
+});
 //route to get form data
-app.get("/api/:formtype", (req, res) => {
-    db.File.findById(req.params.id).then(data => {
+app.get("/api/file/:userId/:formtype", (req, res) => {
+    db.File.find({userId:req.params.userId, formType:req.params.formType}).then(data => {
         if(data) {
           res.json(data);
         } else {

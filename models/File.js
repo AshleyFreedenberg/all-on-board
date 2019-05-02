@@ -64,7 +64,7 @@ const fileSchema = new Schema({
     },
     formType: {
         type: String,
-        required: true,
+        // required: true,
     },
     completed: {
         type: Boolean,
