@@ -38,6 +38,7 @@ class W4Form extends Component {
         email: res.data.email,
       })
     });
+
     API.getFile(this.props.user.id).then(res => {
       console.log(this.props.user.id);
       this.setState({
@@ -55,7 +56,7 @@ class W4Form extends Component {
     event.preventDefault();
     console.log(this.state);
     API.setProfile(this.state).then(res => {
-      alert("Thank you for completing your profile!")
+      alert("Thank you for completing your W-4 Form!")
     })
   };
 
@@ -152,6 +153,7 @@ class W4Form extends Component {
           <div>
           <button className="clearButton" onClick={this.clearForm}>Clear</button>
           </div>
+          <br></br>
           <div className="form-group">
             <label htmlFor="date">Today's Date:</label>
             <br></br>

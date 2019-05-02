@@ -20,10 +20,6 @@ import I9FormPage from './pages/I9FormPage';
 import PolicyManualFormPage from './pages/PolicyManualFormPage';
 import EmpTrainManualFormPage from './pages/EmpTrainManualFormPage';
 
-// import ProfileForm from "./components/ProfileForm";
-// import I9Form from "./components/I9Form";
-// import PolicyManual from "./components/PolicyManual";
-// import EmpTrainManual.jsForm from "./components/EmpTrainManual";
 
 // Here is if we have an id_token in localStorage
 if(localStorage.getItem("id_token")) {
@@ -36,8 +32,6 @@ ReactDOM.render(
         <div>
             <Navbar />
             {/* <Route exact path="/" component={ProfileForm} /> */}
-            <Route exact path="/" component={W4Form} />
-            {/* <Route exact path="/" component={I9Form} /> */}
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/profile" component={Profile} />
