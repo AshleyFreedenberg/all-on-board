@@ -11,6 +11,7 @@ class W4Form extends Component {
   state = {
     username: "",
     email: "",
+    sigPad: {}
   };
 
   constructor(props) {
@@ -49,6 +50,11 @@ class W4Form extends Component {
       alert("Thank you for completing your profile!")
     })
   };
+
+  clearForm = e => {
+    e.preventDefault()
+    this.sigPad.clear()
+  }
 
   handleChange = event => {
     const { name, value } = event.target;
@@ -130,8 +136,13 @@ class W4Form extends Component {
           <div>
           <label htmlFor="date">Employee’s signature:</label>
           <br></br>
-            <SignatureCanvas penColor='blue'
-              canvasProps={{ width: 500, height: 200, className: 'sigCanvas', style: { border: 'solid 1px black' } }} />
+          <SignatureCanvas penColor='blue'
+              canvasProps={{ width: 500, height: 200, className: 'sigCanvas', style: { border: 'solid 1px black' } }} 
+              ref={(ref) => { this.sigPad = ref }}
+              />
+          </div>
+          <div>
+          <button className="clearButton" onClick={this.clearForm}>Clear</button>
           </div>
           <div className="form-group">
             <label htmlFor="date">Today's Date:</label>
