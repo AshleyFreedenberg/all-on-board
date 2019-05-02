@@ -77,7 +77,7 @@ class W4Form extends Component {
   // eslint-disable-next-line no-dupe-class-members
   render() {
     return (
-      <div className="profile container">
+      <div className="container">
         <h1>W-4 Form</h1>
         <h4>Below is information needed to complete your W-4 Form</h4>
         <p>First Name: {this.state.firstName}</p>
