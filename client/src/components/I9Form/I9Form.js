@@ -11,6 +11,7 @@ class I9Form extends Component {
   state = {
     username: "",
     email: "",
+    sigPad: {}
   };
 
   constructor(props) {
@@ -52,6 +53,11 @@ class I9Form extends Component {
     })
   };
 
+  clearForm = e => {
+    e.preventDefault()
+    this.sigPad.clear()
+  }
+
   handleChange = event => {
     const { name, value } = event.target;
     // const name = event.target.name;
@@ -65,8 +71,8 @@ class I9Form extends Component {
   render() {
     return (
       <div className="profile container">
-        <h1>I-9 Form</h1>
-        <h4>Below is information needed to complete your W-4 Form</h4>
+        <h1>I9 Form</h1>
+        <h4>Below is information needed to complete your I9 Form</h4>
         <p>First Name: {this.state.firstName}</p>
         <p>Middle Initial: {this.state.middleInitial}</p>
         <p>Last Name: {this.state.lastName}</p>
@@ -97,7 +103,12 @@ class I9Form extends Component {
           <label htmlFor="date">Employee’s signature:</label>
           <br></br>
             <SignatureCanvas penColor='blue'
-              canvasProps={{ width: 500, height: 200, className: 'sigCanvas', style: { border: 'solid 1px black' } }} />
+              canvasProps={{ width: 500, height: 200, className: 'sigCanvas', style: { border: 'solid 1px black' } }} 
+              ref={(ref) => { this.sigPad = ref }}
+              />
+          </div>
+          <div>
+          <button className="clearButton" onClick={this.clearForm}>Clear</button>
           </div>
           <div className="form-group">
             <label htmlFor="date">Today's Date:</label>
