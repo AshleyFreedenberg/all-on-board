@@ -64,7 +64,6 @@ class PolicyManual extends Component {
     event.preventDefault();
     console.log(this.state);
     API.setProfile(this.state).then(res => {
-      alert("Thank you for completing your Policy Manual!");
       console.log(this.props.history)
       this.props.history.replace(`/profile`);
     })
