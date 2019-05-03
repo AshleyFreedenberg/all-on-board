@@ -41,7 +41,7 @@ class ProfileForm extends Component {
     event.preventDefault();
     console.log(this.state);
     API.setProfile(this.state).then(res => {
-      alert("Thank you for completing your profile!")
+      console.log("Sumbit!")
     })
   };
 

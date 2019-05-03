@@ -68,7 +68,7 @@ class W4Form extends Component {
     event.preventDefault();
     console.log(this.state);
     API.setProfile(this.state).then(res => {
-      alert("Thank you for completing your W-4 Form!");
+      console.log("Sumbit!")
       console.log(this.props.history)
       this.props.history.replace(`/profile`);
       // return this.props.history.push("/api/profile");
