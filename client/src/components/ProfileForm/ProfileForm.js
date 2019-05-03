@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import withAuth from '../withAuth';
 import API from '../../utils/API';
-
-
+import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
 import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
 
@@ -18,7 +18,8 @@ class ProfileForm extends Component {
     this.state = {
       startDate: new Date(),
       formType: "profile",
-      usesrId: this.props.user.id
+      userId: this.props.user.id,
+      completed: true
 
     };
     this.handleChange = this.handleChange.bind(this);
@@ -59,7 +60,7 @@ class ProfileForm extends Component {
   // eslint-disable-next-line no-dupe-class-members
   render() {
     return (
-        <div className="profile container">
+        <div className="container">
           <h1>Profile</h1>
           <form onSubmit={this.handleFormSubmit}>
             <div className="form-group">
@@ -156,8 +157,8 @@ class ProfileForm extends Component {
                 id="preferredName"
                 onChange={this.handleChange} />
             </div>
-            <button type="submit" className="btn btn-primary">Submit</button>
-          </form>
+            <Button type="submit" className="btn btn-primary">Submit</Button>
+            </form>
         </div>
     );
   }

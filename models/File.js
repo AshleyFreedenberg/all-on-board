@@ -58,6 +58,13 @@ const fileSchema = new Schema({
         type: Number,
         trim: true
     },
+    additionalAmount: {
+        type: Number,
+        trim: true
+    },
+    exempt:{
+        type: String,
+    },
     signature: {
         type: String,
         trim: true
@@ -75,7 +82,7 @@ const fileSchema = new Schema({
         default: Date.now
     },
     citizenship: {
-        type: Boolean,
+        type: String,
       },
       
 });
