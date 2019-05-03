@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 import DatePicker from "react-datepicker";
 import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
 import SignatureCanvas from 'react-signature-canvas'
-        
+
 import { Container, Row, Col } from 'react-bootstrap';
 
 import pdf from "./../../pdf/PolicyManual.pdf";
@@ -93,17 +93,21 @@ class PolicyManual extends Component {
     return (
       <div>
         <Container>
+          <br></br>
+          <Row>
+            <p>Put Text Here!</p>
+          </Row>
           <Row>
             <Col>
-            <div>
-              <Document
-                file={file}
-                onLoadSuccess={this.onDocumentLoadSuccess}
-              >
-                <Page pageNumber={pageNumber} />
-              </Document>
-              <p>Page {pageNumber} of {numPages}</p>
-            </div>
+              <div>
+                <Document
+                  file={file}
+                  onLoadSuccess={this.onDocumentLoadSuccess}
+                >
+                  <Page pageNumber={pageNumber} />
+                </Document>
+                <p>Page {pageNumber} of {numPages}</p>
+              </div>
             </Col>
             <Col>
               <div className="container">
@@ -119,7 +123,7 @@ class PolicyManual extends Component {
                       type="checkbox"
                       checked={this.state.isGoing}
                       onChange={this.handleInputChange} /> &nbsp;
-                 I agree to the terms and conditions.
+               I agree to the terms and conditions.
           </label>
                   <div>
                     <label htmlFor="date">Employee’s signature:</label>

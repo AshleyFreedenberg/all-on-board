@@ -98,17 +98,21 @@ class W4Form extends Component {
     return (
       <div>
         <Container>
+          <br></br>
+          <Row>
+            <p>Put Text Here!</p>
+          </Row>
           <Row>
             <Col>
-            <div>
-              <Document
-                file={file}
-                onLoadSuccess={this.onDocumentLoadSuccess}
-              >
-                <Page pageNumber={pageNumber} />
-              </Document>
-              <p>Page {pageNumber} of {numPages}</p>
-            </div>
+              <div>
+                <Document
+                  file={file}
+                  onLoadSuccess={this.onDocumentLoadSuccess}
+                >
+                  <Page pageNumber={pageNumber} />
+                </Document>
+                <p>Page {pageNumber} of {numPages}</p>
+              </div>
             </Col>
             <Col>
               <div className="container">
