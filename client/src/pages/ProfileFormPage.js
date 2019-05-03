@@ -3,7 +3,7 @@ import withAuth from '../components/withAuth';
 import API from '../utils/API';
 import { Link } from 'react-router-dom';
 import ProfileForm from './../components/ProfileForm';
-
+import { Button, } from 'react-bootstrap';
 
 class ProfileFormPage extends Component {
 
@@ -35,7 +35,7 @@ class ProfileFormPage extends Component {
     return (
       <div>
         <div className="container Profile">
-          <Link to="/">Go home</Link>
+          <Link to="/profile"><Button className="btn btn-info">Back to Employee Profile</Button></Link>
           <ProfileForm />
         </div>
       </div >

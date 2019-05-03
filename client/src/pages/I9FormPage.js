@@ -3,6 +3,7 @@ import withAuth from '../components/withAuth';
 import API from '../utils/API';
 import { Link } from 'react-router-dom';
 import I9Form from './../components/I9Form';
+import { Button, } from 'react-bootstrap';
 
 
 class I9FormPage extends Component {
@@ -35,7 +36,7 @@ class I9FormPage extends Component {
     return (
       <div>
         <div className="container Profile">
-          <Link to="/">Go home</Link>
+        <Link to="/profile"><Button className="btn btn-info">Back to Employee Profile</Button></Link>
           <I9Form />
         </div>
       </div >
