@@ -26,7 +26,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 mongoose
-  .connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/appDB', {useNewUrlParser: true, useCreateIndex: true})
+  .connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/appDB', { useNewUrlParser: true, useCreateIndex: true })
   .then(() => console.log("MongoDB Connected!"))
   .catch(err => console.error(err));
 
@@ -50,10 +50,10 @@ app.post('/api/signup', (req, res) => {
 // to access
 app.get('/api/user/:id', isAuthenticated, (req, res) => {
   db.User.findById(req.params.id).then(data => {
-    if(data) {
+    if (data) {
       res.json(data);
     } else {
-      res.status(404).send({success: false, message: 'No user found'});
+      res.status(404).send({ success: false, message: 'No user found' });
     }
   }).catch(err => res.status(400).send(err));
 });
@@ -65,19 +65,19 @@ app.post('/api/form', (req, res) => {
 });
 //route to get form data
 app.get("/api/:formtype", (req, res) => {
-    db.File
-        .findById(req.params.formType)
-        .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err));
-    },
-   );
+  db.File
+    .findById(req.params.formType)
+    .then(dbModel => res.json(dbModel))
+    .catch(err => res.status(422).json(err));
+},
+);
 
-   app.get("/api/form",  (req, res) => {
-     db.File
-     .find({})
-     .then(dbFile => res.json(dbFile))
-     .catch(err => res.status(422).json(err));
-   });
+app.get("/api/form", (req, res) => {
+  db.File
+    .find({})
+    .then(dbFile => res.json(dbFile))
+    .catch(err => res.status(422).json(err));
+});
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -112,10 +112,10 @@ app.use(function (err, req, res, next) {
 
 // Send every request to the React app
 // Define any API routes before this runs
-app.get("*", function(req, res) {
+app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
 });
