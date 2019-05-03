@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import withAuth from '../withAuth';
 import API from '../../utils/API';
-
-
+import { Link, withRouter } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
 import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
 
 import { Container, Row, Col } from 'react-bootstrap';
-import pdf from "./../../pdf/W4Form.pdf";
-import { Document, Page, pdfjs } from 'react-pdf';
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 class ProfileForm extends Component {
 
@@ -20,10 +17,6 @@ class ProfileForm extends Component {
       formType: "profile",
       userId: this.props.user.id,
       completed: true,
-      file: pdf,
-      numPages: 4,
-      pageNumber: 1
-
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -49,7 +42,7 @@ class ProfileForm extends Component {
     event.preventDefault();
     console.log(this.state);
     API.setProfile(this.state).then(res => {
-      alert("Thank you for completing your profile!")
+      console.log("Sumbit!")
     })
   };
 
@@ -63,26 +56,12 @@ class ProfileForm extends Component {
     console.log(this.state)
   };
 
-  onDocumentLoadSuccess = ({ numPages }) => {
-    this.setState({ numPages });
-  }
   // eslint-disable-next-line no-dupe-class-members
   render() {
-    const { pageNumber, numPages, file } = this.state;
     return (
       <div>
         <Container>
           <Row>
-            <Col><div>
-              <Document
-                file={file}
-                onLoadSuccess={this.onDocumentLoadSuccess}
-              >
-                <Page pageNumber={pageNumber} />
-              </Document>
-              <p>Page {pageNumber} of {numPages}</p>
-            </div>
-            </Col>
             <Col>
               <div className="container">
                 <h1>Profile Form</h1>
@@ -192,4 +171,4 @@ class ProfileForm extends Component {
   }
 }
 
-export default withAuth(ProfileForm);
+export default withRouter(withAuth(ProfileForm));

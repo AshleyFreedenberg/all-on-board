@@ -15,5 +15,12 @@ export default {
   getFile: (id) => {
     return axios.get(`/api/user/${id}`);
   },
+
+  getAllFilesOneUser: (userId) => {
+    return axios.get(`/api/getallfilesoneuser/${userId}`)
+  },
+  comPleted: (userId, formType) => {
+    return axios.get(`/api/file/${userId}/${formType}` )
+  }
 };
 

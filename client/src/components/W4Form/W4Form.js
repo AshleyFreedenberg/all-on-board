@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import withAuth from '../withAuth';
 import API from '../../utils/API';
-
+import { Button, Card } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
 import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
 import SignatureCanvas from 'react-signature-canvas'
-
+import { Link, withRouter } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
+import pdf from "./../../pdf/W4Form.pdf";
+import { Document, Page, pdfjs } from 'react-pdf';
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 class W4Form extends Component {
 
@@ -22,9 +25,13 @@ class W4Form extends Component {
       startDate: new Date(),
       formType: "w-4",
       completed: true,
-      userId: this.props.user.id
+      userId: this.props.user.id,
+      file: pdf,
+      numPages: 4,
+      pageNumber: 1
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
   handleChangeDate = date => {
@@ -42,15 +49,15 @@ class W4Form extends Component {
       })
     });
 
-    API.getFile(this.props.user.id).then(res => {
-      console.log(this.props.user.id);
+    API.getAllFilesOneUser(this.props.user.id).then(res => {
+      console.log(res.data);
       this.setState({
-        username: res.data.username,
-        email: res.data.email,
-        firstName: res.data.firstName,
-        middleInitial: res.data.middleInitial,
-        lastName: res.data.lastName,
-        address: res.data.address
+        username: res.data[0].username,
+        email: res.data[0].email,
+        firstName: res.data[0].firstName,
+        middleInitial: res.data[0].middleInitial,
+        lastName: res.data[0].lastName,
+        address: res.data[0].address
       })
     });
   }
@@ -59,8 +66,11 @@ class W4Form extends Component {
     event.preventDefault();
     console.log(this.state);
     API.setProfile(this.state).then(res => {
-      alert("Thank you for completing your W-4 Form!")
-    })
+      console.log("Sumbit!")
+      console.log(this.props.history)
+      this.props.history.replace(`/profile`);
+      // return this.props.history.push("/api/profile");
+    });
   };
 
   clearForm = e => {
@@ -77,17 +87,33 @@ class W4Form extends Component {
     });
     console.log(this.state)
   };
+
+  onDocumentLoadSuccess = ({ numPages }) => {
+    this.setState({ numPages });
+  }
+
   // eslint-disable-next-line no-dupe-class-members
   render() {
+    const { pageNumber, numPages, file } = this.state;
     return (
       <div>
         <Container>
           <Row>
-            <Col>1 of 2</Col>
+            <Col>
+            <div>
+              <Document
+                file={file}
+                onLoadSuccess={this.onDocumentLoadSuccess}
+              >
+                <Page pageNumber={pageNumber} />
+              </Document>
+              <p>Page {pageNumber} of {numPages}</p>
+            </div>
+            </Col>
             <Col>
               <div className="container">
                 <h1>W-4 Form</h1>
-                <h4>Below is information needed to complete your W-4 Form</h4>
+                <h4>Information needed to complete your W-4 Form</h4>
                 <p>First Name: {this.state.firstName}</p>
                 <p>Middle Initial: {this.state.middleInitial}</p>
                 <p>Last Name: {this.state.lastName}</p>
@@ -190,7 +216,7 @@ class W4Form extends Component {
   }
 }
 
-export default withAuth(W4Form);
+export default withRouter(withAuth(W4Form));
 
 
 
