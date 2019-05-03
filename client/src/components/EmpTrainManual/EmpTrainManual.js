@@ -9,6 +9,8 @@ import { Link } from 'react-router-dom';
 
 
 
+import { Container, Row, Col } from 'react-bootstrap';
+
 class EmpTrainManual extends Component {
 
   state = {
@@ -22,7 +24,8 @@ class EmpTrainManual extends Component {
     this.state = {
       startDate: new Date(),
       formType: "manual",
-      completed: true
+      completed: true,
+      userId: this.props.user.id
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -77,52 +80,61 @@ class EmpTrainManual extends Component {
   // eslint-disable-next-line no-dupe-class-members
   render() {
     return (
-      <div className="container">
-        <h1>Employee Training Manual</h1>
-        <h4>Below is information needed to complete your Employee Training Manual Form</h4>
-        <p>First Name: {this.state.firstName}</p>
-        <p>Last Name: {this.state.lastName}</p>
+      <div>
+        <Container>
+          <Row>
+            <Col>1 of 2</Col>
+            <Col>
+              <div className="container">
+                <h1>Employee Training Manual</h1>
+                <h4>Below is information needed to complete your Employee Training Manual Form</h4>
+                <p>First Name: {this.state.firstName}</p>
+                <p>Last Name: {this.state.lastName}</p>
 
-        <form onSubmit={this.handleFormSubmit}>
-          <label>
-          <input
-              name="isGoing"
-              type="checkbox"
-              checked={this.state.isGoing}
-              onChange={this.handleInputChange} /> &nbsp;
-           I agree to the terms and conditions.
+                <form onSubmit={this.handleFormSubmit}>
+                  <label>
+                    <input
+                      name="isGoing"
+                      type="checkbox"
+                      checked={this.state.isGoing}
+                      onChange={this.handleInputChange} /> &nbsp;
+                 I agree to the terms and conditions.
           </label>
-          <div>
-            <label htmlFor="date">Employee’s signature:</label>
-            <br></br>
-            <SignatureCanvas penColor='blue'
-              canvasProps={{ width: 500, height: 200, className: 'sigCanvas', style: { border: 'solid 1px black' } }}
-              ref={(ref) => { this.sigPad = ref }}
-            />
-          </div>
-          <div>
-            <button className="clearButton" onClick={this.clearForm}>Clear</button>
-          </div>
-          <br></br>
-          <div className="form-group">
-            <label htmlFor="date">Today's Date:</label>
-            <br></br>
-            <DatePicker className="form-control"
-              placeholder="Today's Date goes here..."
-              name="date"
-              type="text"
-              id="date"
-              onChange={this.handleChange}
-              onChange={this.handleChangeDate}
-              selected={this.state.startDate}
-              peekNextMonth
-              showMonthDropdown
-              showYearDropdown
-              dropdownMode="select"
-            />
-          </div>
-          <Link to="/Profile"><Button type="submit" className="btn btn-primary">Submit</Button></Link>
-        </form>
+                  <div>
+                    <label htmlFor="date">Employee’s signature:</label>
+                    <br></br>
+                    <SignatureCanvas penColor='blue'
+                      canvasProps={{ width: 500, height: 200, className: 'sigCanvas', style: { border: 'solid 1px black' } }}
+                      ref={(ref) => { this.sigPad = ref }}
+                    />
+                  </div>
+                  <div>
+                    <button className="clearButton" onClick={this.clearForm}>Clear</button>
+                  </div>
+                  <br></br>
+                  <div className="form-group">
+                    <label htmlFor="date">Today's Date:</label>
+                    <br></br>
+                    <DatePicker className="form-control"
+                      placeholder="Today's Date goes here..."
+                      name="date"
+                      type="text"
+                      id="date"
+                      onChange={this.handleChange}
+                      onChange={this.handleChangeDate}
+                      selected={this.state.startDate}
+                      peekNextMonth
+                      showMonthDropdown
+                      showYearDropdown
+                      dropdownMode="select"
+                    />
+                  </div>
+                  <button type="submit" className="btn btn-primary">Submit</button>
+                </form>
+              </div>
+            </Col>
+          </Row>
+        </Container>
       </div>
     );
   }
