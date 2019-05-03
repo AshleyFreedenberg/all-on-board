@@ -7,8 +7,11 @@ import DatePicker from "react-datepicker";
 import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
 import SignatureCanvas from 'react-signature-canvas'
         
-
 import { Container, Row, Col } from 'react-bootstrap';
+
+import pdf from "./../../pdf/PolicyManual.pdf";
+import { Document, Page, pdfjs } from 'react-pdf';
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 class PolicyManual extends Component {
 
@@ -24,8 +27,12 @@ class PolicyManual extends Component {
       startDate: new Date(),
       formType: "policy",
       completed: true,
-      userId: this.props.user.id
+      userId: this.props.user.id,
+      file: pdf,
+      numPages: 27,
+      pageNumber: 1
     };
+
     this.handleChange = this.handleChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
@@ -44,13 +51,11 @@ class PolicyManual extends Component {
         email: res.data.email,
       })
     });
-    API.getFile(this.props.user.id).then(res => {
+    API.getAllFilesOneUser(this.props.user.id).then(res => {
       console.log(this.props.user.id);
       this.setState({
-        username: res.data.username,
-        email: res.data.email,
-        firstName: res.data.firstName,
-        lastName: res.data.lastName,
+        firstName: res.data[0].firstName,
+        lastName: res.data[0].lastName,
       })
     });
   }
@@ -79,17 +84,32 @@ class PolicyManual extends Component {
     });
     console.log(this.state)
   };
+
+  onDocumentLoadSuccess = ({ numPages }) => {
+    this.setState({ numPages });
+  }
   // eslint-disable-next-line no-dupe-class-members
   render() {
+    const { pageNumber, numPages, file } = this.state;
     return (
       <div>
         <Container>
           <Row>
-            <Col>1 of 2</Col>
+            <Col>
+            <div>
+              <Document
+                file={file}
+                onLoadSuccess={this.onDocumentLoadSuccess}
+              >
+                <Page pageNumber={pageNumber} />
+              </Document>
+              <p>Page {pageNumber} of {numPages}</p>
+            </div>
+            </Col>
             <Col>
               <div className="container">
                 <h1>Policy Manual</h1>
-                <h4>Below is information needed to complete your Policy Manual Form</h4>
+                <h4>Information needed to complete your Policy Manual Form</h4>
                 <p>First Name: {this.state.firstName}</p>
                 <p>Last Name: {this.state.lastName}</p>
 
