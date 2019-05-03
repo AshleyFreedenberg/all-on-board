@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import withAuth from '../withAuth';
 import API from '../../utils/API';
 import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import DatePicker from "react-datepicker";
 import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
 import SignatureCanvas from 'react-signature-canvas'
@@ -69,7 +69,9 @@ class I9Form extends Component {
     event.preventDefault();
     console.log(this.state);
     API.setProfile(this.state).then(res => {
-      alert("Thank you for completing your I-9 Form!")
+      alert("Thank you for completing your I-9 Form!");
+      console.log(this.props.history)
+      this.props.history.replace(`/profile`);
     })
   };
 
@@ -179,7 +181,7 @@ class I9Form extends Component {
   }
 }
 
-export default withAuth(I9Form);
+export default withRouter(withAuth(I9Form));
 
 
 

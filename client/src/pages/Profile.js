@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import withAuth from './../components/withAuth';
 import API from './../utils/API';
 import { Link } from 'react-router-dom';
-import { ProgressBar, Button } from 'react-bootstrap';
+import { ProgressBar, Button, Card } from 'react-bootstrap';
 
 // const now = 50;
 
@@ -31,7 +31,7 @@ class Profile extends Component {
 
       })
       console.log(this.state.filesComplete);
-      console.log(this.state.firstName)
+      // console.log(this.state.firstName)
     });
 
   }
@@ -47,25 +47,26 @@ class Profile extends Component {
   };
   // eslint-disable-next-line no-dupe-class-members
   render() {
-    var percentage = (100 - ((4 - this.state.filesComplete) / 4 * 100)).toFixed(0);
+    var percentage = (100 - ((5 - this.state.filesComplete) / 5 * 100)).toFixed(0);
     return (
       <div className="profile-page">
         <div className="container Profile">
           <h1>Welcome Aboard {this.state.username}!</h1>
-          
+          <p>
+          Welcome to Chardo Brewing Co!
+We are pleased to have you joining our team. Are you ready to fall in love with your new job and meet your great new teammates?<br/><br/>
 
+I hope you are, because it’s going down, your first day on the new job will take place on May 7, 2019. We’ll be expecting you at 12:00pm at Chardo Brewing Co home office.<br/><br/>
+
+We planned your first day in order to help you settle in easily but first we need you to complete the onboarding process. Before your first day, please have the forms below submitted.
+
+          </p>
+          <hr />
+          <br/><br/>
           <ProgressBar now={percentage} label={`${percentage}%`} />
-   <br/>
-            {/* <Link to="/profileFormPage"><Button variant="primary">Profile Form</Button></Link>&nbsp;&nbsp;
-            <Link to="/w4FormPage"><Button variant="primary">W4 Form</Button></Link>&nbsp;&nbsp;
-            <Link to="/i9FormPage"><Button variant="primary">i9 Form</Button></Link>&nbsp;&nbsp;
-            <Link to="/policyManualFormPage"><Button variant="primary">Policy Manual</Button></Link>&nbsp;&nbsp;
-            <Link to="/empTrainManualFormPage"><Button variant="primary">Employee Training Manual</Button></Link>&nbsp;&nbsp; */}
-
-          
         </div>
 
-        <br /><br />
+        
         <div className="col-md-11">
           <Table striped bordered hover className="profileTable">
             <thead>
@@ -78,29 +79,37 @@ class Profile extends Component {
               </tr>
             </thead>
             <tbody>
+            <tr>
+              
+                <td>Employee Profile</td>
+                <td>May 7th, 2019</td>
+                <td>Incomplete</td>
+                <td><Link to="/profileFormPage"><Button className="btn btn-success">Start </Button></Link></td>
+              </tr>
+              
               <tr>
                 <td>W4</td>
                 <td>May 7th, 2019</td>
                 <td>Incomplete</td>
-                <td><Link to="/w4FormPage"><button className="btn btn-success">Start </button></Link></td>
+                <td><Link to="/w4FormPage"><Button className="btn btn-success">Start </Button></Link></td>
               </tr>
               <tr>
                 <td>I-9</td>
                 <td>May 7th, 2019</td>
                 <td>Incomplete</td>
-                <td><Link to="/i9FormPage"><button className="btn btn-success">Start </button></Link></td>
+                <td><Link to="/i9FormPage"><Button className="btn btn-success">Start </Button></Link></td>
               </tr>
               <tr>
                 <td>Policy Manual</td>
                 <td>May 7th, 2019</td>
                 <td>Incomplete</td>
-                <td><Link to="/policyManualFormPage"><button className="btn btn-success">Start </button></Link></td>
+                <td><Link to="/policyManualFormPage"><Button className="btn btn-success">Start </Button></Link></td>
               </tr>
               <tr>
                 <td>Training Manual</td>
                 <td>May 7th, 2019</td>
                 <td>Incomplete</td>
-                <td><Link to="/empTrainManualFormPage"><button className="btn btn-success">Start </button></Link></td>
+                <td><Link to="/empTrainManualFormPage"><Button className="btn btn-success">Start </Button></Link></td>
               </tr>
             </tbody>
           </Table>

@@ -5,7 +5,7 @@ import DatePicker from "react-datepicker";
 import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
 import SignatureCanvas from 'react-signature-canvas';
 import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 import { Container, Row, Col } from 'react-bootstrap';
 
@@ -66,6 +66,8 @@ class EmpTrainManual extends Component {
     console.log(this.state);
     API.setProfile(this.state).then(res => {
       alert("Thank you for completing your Employee Training Manual!")
+      console.log(this.props.history)
+      this.props.history.replace(`/profile`);
     })
   };
 
@@ -161,7 +163,7 @@ class EmpTrainManual extends Component {
   }
 }
 
-export default withAuth(EmpTrainManual);
+export default withRouter(withAuth(EmpTrainManual));
 
 
 
