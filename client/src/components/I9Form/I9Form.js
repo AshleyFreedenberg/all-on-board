@@ -52,6 +52,7 @@ class I9Form extends Component {
     });
 
     API.getAllFilesOneUser(this.props.user.id).then(res => {
+     console.log(res.data[0])
       this.setState({
         firstName: res.data[0].firstName,
         middleInitial: res.data[0].middleInitial,
@@ -98,6 +99,10 @@ class I9Form extends Component {
     return (
       <div>
         <Container>
+        <br></br>
+          <Row>
+            <p>Put Text Here!</p>
+          </Row>
           <Row>
             <Col>
             <div>
@@ -160,7 +165,6 @@ class I9Form extends Component {
                       name="date"
                       type="text"
                       id="date"
-                      onChange={this.handleChange}
                       onChange={this.handleChangeDate}
                       selected={this.state.startDate}
                       peekNextMonth
