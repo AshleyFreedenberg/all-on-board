@@ -65,7 +65,6 @@ class EmpTrainManual extends Component {
     event.preventDefault();
     console.log(this.state);
     API.setProfile(this.state).then(res => {
-      alert("Thank you for completing your Employee Training Manual!")
       console.log(this.props.history)
       this.props.history.replace(`/profile`);
     })
