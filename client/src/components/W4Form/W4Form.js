@@ -5,9 +5,7 @@ import { Button, Card } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
 import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
 import SignatureCanvas from 'react-signature-canvas'
-import { Link, withRouter} from 'react-router-dom';
-
-
+import { Link, withRouter } from 'react-router-dom';
 
 import { Container, Row, Col } from 'react-bootstrap';
 
@@ -53,15 +51,15 @@ class W4Form extends Component {
       })
     });
 
-    API.getFile(this.props.user.id).then(res => {
-      console.log(this.props.user.id);
+    API.getAllFilesOneUser(this.props.user.id).then(res => {
+      console.log(res.data);
       this.setState({
-        username: res.data.username,
-        email: res.data.email,
-        firstName: res.data.firstName,
-        middleInitial: res.data.middleInitial,
-        lastName: res.data.lastName,
-        address: res.data.address
+        username: res.data[0].username,
+        email: res.data[0].email,
+        firstName: res.data[0].firstName,
+        middleInitial: res.data[0].middleInitial,
+        lastName: res.data[0].lastName,
+        address: res.data[0].address
       })
     });
   }
@@ -103,7 +101,8 @@ class W4Form extends Component {
       <div>
         <Container>
           <Row>
-            <Col><div>
+            <Col>
+            <div>
               <Document
                 file={file}
                 onLoadSuccess={this.onDocumentLoadSuccess}
@@ -111,11 +110,12 @@ class W4Form extends Component {
                 <Page pageNumber={pageNumber} />
               </Document>
               <p>Page {pageNumber} of {numPages}</p>
-            </div></Col>
+            </div>
+            </Col>
             <Col>
               <div className="container">
                 <h1>W-4 Form</h1>
-                <h4>Below is information needed to complete your W-4 Form</h4>
+                <h4>Information needed to complete your W-4 Form</h4>
                 <p>First Name: {this.state.firstName}</p>
                 <p>Middle Initial: {this.state.middleInitial}</p>
                 <p>Last Name: {this.state.lastName}</p>
