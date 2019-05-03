@@ -7,9 +7,6 @@ import DatePicker from "react-datepicker";
 import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
 
 import { Container, Row, Col } from 'react-bootstrap';
-import pdf from "./../../pdf/W4Form.pdf";
-import { Document, Page, pdfjs } from 'react-pdf';
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 class ProfileForm extends Component {
 
@@ -20,10 +17,6 @@ class ProfileForm extends Component {
       formType: "profile",
       userId: this.props.user.id,
       completed: true,
-      file: pdf,
-      numPages: 4,
-      pageNumber: 1
-
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -62,26 +55,12 @@ class ProfileForm extends Component {
     console.log(this.state)
   };
 
-  onDocumentLoadSuccess = ({ numPages }) => {
-    this.setState({ numPages });
-  }
   // eslint-disable-next-line no-dupe-class-members
   render() {
-    const { pageNumber, numPages, file } = this.state;
     return (
       <div>
         <Container>
           <Row>
-            <Col><div>
-              <Document
-                file={file}
-                onLoadSuccess={this.onDocumentLoadSuccess}
-              >
-                <Page pageNumber={pageNumber} />
-              </Document>
-              <p>Page {pageNumber} of {numPages}</p>
-            </div>
-            </Col>
             <Col>
               <div className="container">
                 <h1>Profile Form</h1>
