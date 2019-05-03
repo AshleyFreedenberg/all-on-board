@@ -15,5 +15,9 @@ export default {
   getFile: (id) => {
     return axios.get(`/api/user/${id}`);
   },
+
+  getAllFilesOneUser: (userId) => {
+    return axios.get(`/api/getallfilesoneuser/${userId}`)
+  }
 };
 
