@@ -6,9 +6,7 @@ import DatePicker from "react-datepicker";
 import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
 import SignatureCanvas from 'react-signature-canvas'
 import { Link, withRouter } from 'react-router-dom';
-
 import { Container, Row, Col } from 'react-bootstrap';
-
 import pdf from "./../../pdf/W4Form.pdf";
 import { Document, Page, pdfjs } from 'react-pdf';
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
