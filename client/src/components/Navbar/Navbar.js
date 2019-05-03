@@ -13,6 +13,7 @@ class Navbar extends Component {
     showNavigation = () => {
         if (this.Auth.loggedIn()) {
             return (
+                
                 <ul className="navbar-nav">
                     <li className="nav-item">
                         <Link className="nav-link text-dark" to="/profile">Profile</Link>

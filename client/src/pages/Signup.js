@@ -37,7 +37,7 @@ class Signup extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container col-md-4">
 
         <h1>Signup</h1>
         <form onSubmit={this.handleFormSubmit}>
