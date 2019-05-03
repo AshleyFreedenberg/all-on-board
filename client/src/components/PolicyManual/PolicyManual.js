@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import withAuth from '../withAuth';
 import API from '../../utils/API';
-
+import { Button } from 'react-bootstrap';
+import { withRouter } from 'react-router-dom';
 import DatePicker from "react-datepicker";
 import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
 import SignatureCanvas from 'react-signature-canvas'
+        
 
 import { Container, Row, Col } from 'react-bootstrap';
 
@@ -25,6 +27,7 @@ class PolicyManual extends Component {
       userId: this.props.user.id
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
   handleChangeDate = date => {
@@ -56,7 +59,9 @@ class PolicyManual extends Component {
     event.preventDefault();
     console.log(this.state);
     API.setProfile(this.state).then(res => {
-      alert("Thank you for completing your Policy Manual!")
+      alert("Thank you for completing your Policy Manual!");
+      console.log(this.props.history)
+      this.props.history.replace(`/profile`);
     })
   };
 
@@ -137,7 +142,7 @@ class PolicyManual extends Component {
   }
 }
 
-export default withAuth(PolicyManual);
+export default withRouter(withAuth(PolicyManual));
 
 
 
