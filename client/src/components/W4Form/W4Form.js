@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import withAuth from '../withAuth';
 import API from '../../utils/API';
-
+import { Button, Card } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
 import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
 import SignatureCanvas from 'react-signature-canvas'
+import { Link, withRouter} from 'react-router-dom';
+
+
 
 import { Container, Row, Col } from 'react-bootstrap';
 
@@ -32,6 +35,7 @@ class W4Form extends Component {
       pageNumber: 1
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
   handleChangeDate = date => {
@@ -66,8 +70,11 @@ class W4Form extends Component {
     event.preventDefault();
     console.log(this.state);
     API.setProfile(this.state).then(res => {
-      alert("Thank you for completing your W-4 Form!")
-    })
+      alert("Thank you for completing your W-4 Form!");
+      console.log(this.props.history)
+      this.props.history.replace(`/profile`);
+      // return this.props.history.push("/api/profile");
+    });
   };
 
   clearForm = e => {
@@ -211,7 +218,7 @@ class W4Form extends Component {
   }
 }
 
-export default withAuth(W4Form);
+export default withRouter(withAuth(W4Form));
 
 
 

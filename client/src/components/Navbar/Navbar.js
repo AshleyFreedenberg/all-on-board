@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
+import aob from '../../aob.png'
 import AuthService from '../AuthService';
 import "./style.css";
 
@@ -24,25 +25,29 @@ class Navbar extends Component {
             );
         } else {
             return (
-                
-                    <ul className="navbar-nav">
-                        <li className="nav-item">
-                            <Link className="nav-link text-dark" to="/signup">Signup</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link text-dark" to="/login">Login</Link>
-                        </li>
-                    </ul>
-                
+
+                <ul className="navbar-nav">
+                    <li className="nav-item">
+                        <Link className="nav-link text-dark" to="/signup">Signup</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link text-dark" to="/login">Login</Link>
+                    </li>
+                </ul>
+
             );
         }
     };
-
+    // className="navbar-brand"
     render() {
         return (
             <nav className="navbar navbar-expand-lg navbar-dark text-dark">
                 <div className="container">
-                    <Link className="navbar-brand text-dark" to="/">All On Board</Link>
+
+
+                    <Link to="/"><img src={aob} className="logo" alt="logo" /></Link>
+
+
                     <button className="navbar-toggler text-dark" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -50,9 +55,14 @@ class Navbar extends Component {
                         <ul className="navbar-nav mr-auto text-dark">
                         </ul>
                         {this.showNavigation()}
-                    </div>
+                     
+                    </div> 
                 </div>
+
             </nav>
+
+
+          
         )
     }
 }

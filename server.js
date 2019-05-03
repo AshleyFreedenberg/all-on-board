@@ -63,21 +63,17 @@ app.post('/api/form', (req, res) => {
     .then(data => res.json(data))
     .catch(err => res.status(400).json(err));
 });
-//route to get form data
-app.get("/api/:formtype", (req, res) => {
-  db.File
-    .findById(req.params.formType)
-    .then(dbModel => res.json(dbModel))
-    .catch(err => res.status(422).json(err));
-},
-);
 
-app.get("/api/form", (req, res) => {
-  db.File
-    .find({})
-    .then(dbFile => res.json(dbFile))
-    .catch(err => res.status(422).json(err));
+//route to get form data
+app.get("/api/getallfilesoneuser/:userId", (req, res) => {
+  db.File.find({
+    userId: req.params.userId
+  })
+  .then( data => {
+    res.send(data)
+  })
 });
+
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {

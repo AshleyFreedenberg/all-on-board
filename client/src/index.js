@@ -12,6 +12,14 @@ import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Navbar from './components/Navbar';
+import Icon from './components/Icon';
+import CarouselContainer from './components/CarouselContainer';
+// import Footer from './components/Footer';
+// import W4Form from "./components/W4Form";
+// import ProfileForm from "./components/ProfileForm";
+// import I-9Form from "./components/I-9Form";
+// import PolicyManual from "./components/PolicyManual";
+// import EmpTrainManual.jsForm from "./components/EmpTrainManual";
 import Footer from './components/Footer';
 import W4Form from "./components/W4Form";
 import ProfileFormPage from './pages/ProfileFormPage';
@@ -22,15 +30,17 @@ import EmpTrainManualFormPage from './pages/EmpTrainManualFormPage';
 
 
 // Here is if we have an id_token in localStorage
-if(localStorage.getItem("id_token")) {
-  // then we will attach it to the headers of each request from react application via axios
-  axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('id_token')}`;
+if (localStorage.getItem("id_token")) {
+    // then we will attach it to the headers of each request from react application via axios
+    axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('id_token')}`;
 }
 
 ReactDOM.render(
     <Router>
         <div>
             <Navbar />
+            <Route exact path="/" component={CarouselContainer} />
+            <Route exact path="/" component={Icon} />
             {/* <Route exact path="/" component={ProfileForm} /> */}
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
