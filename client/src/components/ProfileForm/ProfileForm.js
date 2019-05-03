@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import withAuth from '../withAuth';
 import API from '../../utils/API';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
 import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
@@ -41,7 +41,7 @@ class ProfileForm extends Component {
     event.preventDefault();
     console.log(this.state);
     API.setProfile(this.state).then(res => {
-      alert("Thank you for completing your profile!")
+      console.log("Sumbit!")
     })
   };
 
@@ -170,4 +170,4 @@ class ProfileForm extends Component {
   }
 }
 
-export default withAuth(ProfileForm);
+export default withRouter(withAuth(ProfileForm));

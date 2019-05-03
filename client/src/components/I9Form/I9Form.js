@@ -69,7 +69,6 @@ class I9Form extends Component {
     event.preventDefault();
     console.log(this.state);
     API.setProfile(this.state).then(res => {
-      alert("Thank you for completing your I-9 Form!");
       console.log(this.props.history)
       this.props.history.replace(`/profile`);
     })
