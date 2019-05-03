@@ -52,11 +52,18 @@ const fileSchema = new Schema({
         trim: true
     },
     married: {
-        type: Boolean,
+        type: String,
     },
     numberofAllowances: {
         type: Number,
         trim: true
+    },
+    additionalAmount: {
+        type: Number,
+        trim: true
+    },
+    exempt:{
+        type: String,
     },
     signature: {
         type: String,
@@ -75,7 +82,7 @@ const fileSchema = new Schema({
         default: Date.now
     },
     citizenship: {
-        type: Boolean,
+        type: String,
       },
       
 });

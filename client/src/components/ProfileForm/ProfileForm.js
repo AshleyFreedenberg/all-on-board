@@ -2,23 +2,25 @@ import React, { Component } from 'react';
 import withAuth from '../withAuth';
 import API from '../../utils/API';
 
+
 import DatePicker from "react-datepicker";
-import "./node_modules/react-datepicker/dist/react-datepicker.css";
+import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
 
 class ProfileForm extends Component {
 
   state = {
     username: "",
     email: "",
-    formType: "profile",
-    userId: ""
   };
 
   constructor(props) {
     super(props);
     this.state = {
       startDate: new Date(),
-      formType: "profile"
+      formType: "profile",
+      userId: this.props.user.id,
+      completed: true
+
     };
     this.handleChange = this.handleChange.bind(this);
   }

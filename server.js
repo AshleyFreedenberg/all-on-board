@@ -65,16 +65,14 @@ app.post('/api/form', (req, res) => {
     .catch(err => res.status(400).json(err));
 });
 //test route
-app.post('/api/form', (req, res) => {
-  db.File.create(req.body)
-    .then(data => res.json(data))
-    .catch(err => res.status(400).json(err));
-});
+
 //route to get form data
-app.get("/api/file/:userId/:formtype", (req, res) => {
+app.get("/api/file/:userId/:formType", (req, res) => {
+  console.log(req.params);
     db.File.find({userId:req.params.userId, formType:req.params.formType}).then(data => {
         if(data) {
-          res.json(data);
+          console.log(data)
+          res.json({completed: data[0].completed });
         } else {
           res.status(404).send({success: false, message: 'No forms found'});
         }
