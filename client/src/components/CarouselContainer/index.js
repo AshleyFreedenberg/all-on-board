@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import { Carousel } from 'react-bootstrap';
-
 import slider1 from '../../slider1.jpg';
 import slider2 from '../../slider2.jpg';
-import slider3 from '../../slider3.jpg';
-import slider4 from '../../slider4.jpg';
 import slider5 from '../../slider5.jpg';
-import slider6 from '../../slider6.jpg';
 import "./styles.css";
 
 
@@ -52,7 +48,7 @@ class CarouselContainer extends Component {
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
-           </div>
+            </div>
         )
     };
 }

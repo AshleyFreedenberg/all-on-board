@@ -21,7 +21,7 @@ class Icon extends Component {
                 <Card.Body>
                   <Card.Title className="cardTitleText">REDUCE</Card.Title>
                   <Card.Text>
-                    The number the number of HR personnel you need for onboarding!
+                    The number of HR personnel you need for onboarding!
     </Card.Text>
 
                 </Card.Body>
@@ -34,8 +34,7 @@ class Icon extends Component {
                 <Card.Body>
                   <Card.Title className="cardTitleText">RECLAIM</Card.Title>
                   <Card.Text>
-                    Some quick example text to build on the card title and make up the bulk of
-                    the card's content.
+                    Your email inbox from employee clutter. Keep everything digital!
     </Card.Text>
 
                 </Card.Body>
@@ -50,8 +49,7 @@ class Icon extends Component {
                 <Card.Body>
                   <Card.Title className="cardTitleText">BE HAPPY</Card.Title>
                   <Card.Text>
-                    Some quick example text to build on the card title and make up the bulk of
-                    the card's content.
+                    Because you have a partner that knows YOUR workforce.
     </Card.Text>
 
                 </Card.Body>
