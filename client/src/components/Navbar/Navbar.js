@@ -42,7 +42,7 @@ class Navbar extends Component {
     // className="navbar-brand"
     render() {
         return (
-            <nav className="navbar navbar-expand-lg navbar-dark text-dark">
+            <nav className="navbar navbar-expand-lg navbar-light text-dark">
                 <div className="container">
 
 
@@ -50,7 +50,7 @@ class Navbar extends Component {
 
 
                     <button className="navbar-toggler text-dark" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
+                        <span className="navbar-toggler-icon navbar-light"></span>
                     </button>
                     <div className="collapse navbar-collapse text-dark" id="navbarNav">
                         <ul className="navbar-nav mr-auto text-dark">
