@@ -21,7 +21,7 @@ import CarouselContainer from './components/CarouselContainer';
 // import PolicyManual from "./components/PolicyManual";
 // import EmpTrainManual.jsForm from "./components/EmpTrainManual";
 import Footer from './components/Footer';
-import W4Form from "./components/W4Form";
+import Banner from './components/Banner';
 import ProfileFormPage from './pages/ProfileFormPage';
 import W4FormPage from './pages/W4FormPage';
 import I9FormPage from './pages/I9FormPage';
@@ -41,14 +41,21 @@ ReactDOM.render(
             <Navbar />
             <Route exact path="/" component={CarouselContainer} />
             <Route exact path="/" component={Icon} />
-            {/* <Route exact path="/" component={ProfileForm} /> */}
+            <Route exact path="/login" component={Banner} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={Banner} />
             <Route exact path="/signup" component={Signup} />
-            <Route exact path="/profile" component={Profile} />
+            <Route exact path="/profile" component={Banner} />
+             <Route exact path="/profile" component={Profile} />
+             <Route exact path="/profileFormPage" component={Banner} />
             <Route exact path="/profileFormPage" component={ProfileFormPage} />
+            <Route exact path="/w4FormPage" component={Banner} />
             <Route exact path="/w4FormPage" component={W4FormPage} />
+            <Route exact path="/i9FormPage" component={Banner} />
             <Route exact path="/i9FormPage" component={I9FormPage} /> 
+            <Route exact path="/policyManualFormPage" component={Banner} />
             <Route exact path="/policyManualFormPage" component={PolicyManualFormPage} />
+            <Route exact path="/empTrainManualFormPage" component={Banner} />
             <Route exact path="/empTrainManualFormPage" component={EmpTrainManualFormPage} />
             <Footer />
         </div>
