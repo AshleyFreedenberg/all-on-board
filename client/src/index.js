@@ -14,7 +14,7 @@ import Signup from './pages/Signup';
 import Navbar from './components/Navbar';
 import Icon from './components/Icon';
 import CarouselContainer from './components/CarouselContainer';
-// import Footer from './components/Footer';
+
 // import W4Form from "./components/W4Form";
 // import ProfileForm from "./components/ProfileForm";
 // import I-9Form from "./components/I-9Form";
@@ -50,7 +50,7 @@ ReactDOM.render(
             <Route exact path="/i9FormPage" component={I9FormPage} /> 
             <Route exact path="/policyManualFormPage" component={PolicyManualFormPage} />
             <Route exact path="/empTrainManualFormPage" component={EmpTrainManualFormPage} />
-            {/* <Footer /> */}
+            <Footer />
         </div>
     </Router>
     , document.getElementById('root')

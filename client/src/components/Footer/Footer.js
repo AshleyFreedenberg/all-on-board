@@ -1,20 +1,24 @@
 import React, { Component } from "react";
+import aob from '../../aob.png'
+import "./footer.css";
 
 
 
 
-function Footer() {
+class Footer extends Component {
+    render() {
 
-    return (
+        return (
 
-        <footer className="page-footer foot-padding fixed-bottom bg-dark font-small text-light">
-            <div className="container">
-                <div className="footer-copyright text-center py-3">© 2019 Copyright
+            <footer className="page-footer foot-padding sticky-bottom font-small text-dark">
+                <div className="container">
+                <hr/>
+                    <div className="footer-copyright footerText text-center py-3"> © 2019 Copyright | <i class="fab fa-github"></i> <a href="https://github.com/AshleyFreedenberg/all-on-board">All on Board Github Repo</a>
                     </div>
-            </div>
-        </footer>
-    )
+                </div>
+            </footer>
+        )
 
+    }
 }
-
 export default Footer;

@@ -16,11 +16,11 @@ class Navbar extends Component {
                 
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                        <Link className="nav-link text-dark" to="/profile">Profile</Link>
+                        <Link className="nav-link text-dark" to="/profile">PROFILE</Link>
                     </li>
                     <li className="nav-item text-dark">
                         {/* this is not using the Link component to logout or user and then refresh the application to the start */}
-                        <a className="nav-link text-dark" href="/" onClick={() => this.Auth.logout()}>Logout</a>
+                        <a className="nav-link text-dark" href="/" onClick={() => this.Auth.logout()}>LOG OUT</a>
                     </li>
                 </ul>
             );
@@ -29,10 +29,10 @@ class Navbar extends Component {
 
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                        <Link className="nav-link text-dark" to="/signup">Signup</Link>
+                        <Link className="nav-link text-dark navText" to="/signup">SIGN UP</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link text-dark" to="/login">Login</Link>
+                        <Link className="nav-link text-dark" to="/login">LOG IN</Link>
                     </li>
                 </ul>
 
@@ -56,10 +56,10 @@ class Navbar extends Component {
                         <ul className="navbar-nav mr-auto text-dark">
                         </ul>
                         {this.showNavigation()}
-                     
+                  
                     </div> 
                 </div>
-
+               
             </nav>
 
 
