@@ -19,8 +19,8 @@ class CarouselContainer extends Component {
                             alt="First slide"
                         />
                         <Carousel.Caption>
-                            <h3>DON'T LET PAPERWORK SINK YOU</h3>
-                            <p>Manage compliance, easily onboard and engage new employees</p>
+                            {/* <h3>DON'T LET PAPERWORK SINK YOU</h3>
+                            <p>Manage compliance, easily onboard and engage new employees</p> */}
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -31,8 +31,8 @@ class CarouselContainer extends Component {
                         />
 
                         <Carousel.Caption>
-                            <h3>GET YOUR SHIP TOGETHER</h3>
-                            <p>SPEED up the collection of employees forms and certifications</p>
+                            {/* <h3>GET YOUR SHIP TOGETHER</h3>
+                            <p>SPEED up the collection of employees forms and certifications</p> */}
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -43,8 +43,8 @@ class CarouselContainer extends Component {
                         />
 
                         <Carousel.Caption>
-                            <h3>KNOT A DIFFICULT PROCESS</h3>
-                            <p>REDUCE the number of HR personnel you need for onboarding</p>
+                            {/* <h3>KNOT A DIFFICULT PROCESS</h3>
+                            <p>REDUCE the number of HR personnel you need for onboarding</p> */}
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>

@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import withAuth from './../components/withAuth';
 import API from './../utils/API';
 import { Link } from 'react-router-dom';
-import { ProgressBar, Button, Card } from 'react-bootstrap';
+import { ProgressBar, Button, Container } from 'react-bootstrap';
+import './style.css';
 
 // const now = 50;
 
@@ -27,7 +28,7 @@ class Profile extends Component {
       console.log(res)
       this.setState({
         filesComplete: res.data.length,
-        
+
 
       })
       console.log(this.state.filesComplete);
@@ -51,22 +52,26 @@ class Profile extends Component {
     return (
       <div className="profile-page">
         <div className="container Profile">
-          <h1>Welcome Aboard {this.state.username}!</h1>
+          <hr />
+          <h1>Welcome Aboard, {this.state.username}!</h1>
           <p>
-          Welcome to Chardo Brewing Co!
-We are pleased to have you joining our team. Are you ready to fall in love with your new job and meet your great new teammates?<br/><br/>
+            Welcome to Chardo Brewing Co!
+We are pleased to have you joining our team. Are you ready to fall in love with your new job and meet your great new teammates?<br /><br />
 
-I hope you are, because it’s going down, your first day on the new job will take place on May 7, 2019. We’ll be expecting you at 12:00pm at Chardo Brewing Co home office.<br/><br/>
+            I hope you are, because it’s going down, your first day on the new job will take place on May 7, 2019. We’ll be expecting you at 12:00pm at Chardo Brewing Co home office.<br /><br />
 
-We planned your first day in order to help you settle in easily but first we need you to complete the onboarding process. Before your first day, please have the forms below submitted.
-
+            We planned your first day in order to help you settle in easily but first we need you to complete the onboarding process. Before your first day, please have the forms below submitted.
+            
           </p>
           <hr />
-          <br/><br/>
-          <ProgressBar now={percentage} label={`${percentage}%`} />
+          <br /><br />
+          <Container>
+            <h5>Testing 1234</h5>
+            <ProgressBar now={percentage} label={`${percentage}%`} />
+          </Container>
         </div>
 
-        
+
         <div className="col-md-11">
           <Table striped bordered hover className="profileTable">
             <thead>
@@ -79,14 +84,14 @@ We planned your first day in order to help you settle in easily but first we nee
               </tr>
             </thead>
             <tbody>
-            <tr>
-              
+              <tr>
+
                 <td>Employee Profile</td>
                 <td>May 7th, 2019</td>
                 <td>Incomplete</td>
                 <td><Link to="/profileFormPage"><Button className="btn btn-success">Start </Button></Link></td>
               </tr>
-              
+
               <tr>
                 <td>W4</td>
                 <td>May 7th, 2019</td>
