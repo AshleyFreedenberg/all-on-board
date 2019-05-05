@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import withAuth from './../components/withAuth';
 import API from './../utils/API';
 import { Link } from 'react-router-dom';
-import { ProgressBar, Button, Container } from 'react-bootstrap';
-import './style.css';
+import { ProgressBar, Button, Container, Card } from 'react-bootstrap';
+import './profile.css';
 
 // const now = 50;
 
@@ -54,21 +54,24 @@ class Profile extends Component {
         <div className="container Profile">
           <hr />
           <h1>Welcome Aboard, {this.state.username}!</h1>
-          <p>
+          <p className="pbody">
             Welcome to Chardo Brewing Co!
 We are pleased to have you joining our team. Are you ready to fall in love with your new job and meet your great new teammates?<br /><br />
 
             I hope you are, because it’s going down, your first day on the new job will take place on May 7, 2019. We’ll be expecting you at 12:00pm at Chardo Brewing Co home office.<br /><br />
 
             We planned your first day in order to help you settle in easily but first we need you to complete the onboarding process. Before your first day, please have the forms below submitted.
-            
+
           </p>
           <hr />
           <br /><br />
-          <Container>
-            <h5>Testing 1234</h5>
-            <ProgressBar now={percentage} label={`${percentage}%`} />
-          </Container>
+          <Card>
+            <Card.Body>
+              <h2>{this.state.username}, please complete the forms below before your start date!</h2><hr/><br />
+              <h5>PERCENTAGE OF FORMS COMPLETED</h5>
+              <ProgressBar now={percentage} label={`${percentage}%`} />
+            </Card.Body>
+          </Card>
         </div>
 
 
@@ -89,32 +92,32 @@ We are pleased to have you joining our team. Are you ready to fall in love with 
                 <td>Employee Profile</td>
                 <td>May 7th, 2019</td>
                 <td>Incomplete</td>
-                <td><Link to="/profileFormPage"><Button className="btn btn-success">Start </Button></Link></td>
+                <td><Link to="/profileFormPage"><Button className="btn btn-success">Start <i class="fa fa-arrow-right"/></Button></Link></td>
               </tr>
 
               <tr>
                 <td>W4</td>
                 <td>May 7th, 2019</td>
                 <td>Incomplete</td>
-                <td><Link to="/w4FormPage"><Button className="btn btn-success">Start </Button></Link></td>
+                <td><Link to="/w4FormPage"><Button className="btn btn-success">Start <i class="fa fa-arrow-right"/></Button></Link></td>
               </tr>
               <tr>
                 <td>I-9</td>
                 <td>May 7th, 2019</td>
                 <td>Incomplete</td>
-                <td><Link to="/i9FormPage"><Button className="btn btn-success">Start </Button></Link></td>
+                <td><Link to="/i9FormPage"><Button className="btn btn-success">Start <i class="fa fa-arrow-right"/></Button></Link></td>
               </tr>
               <tr>
                 <td>Policy Manual</td>
                 <td>May 7th, 2019</td>
                 <td>Incomplete</td>
-                <td><Link to="/policyManualFormPage"><Button className="btn btn-success">Start </Button></Link></td>
+                <td><Link to="/policyManualFormPage"><Button className="btn btn-success">Start <i class="fa fa-arrow-right"/></Button></Link></td>
               </tr>
               <tr>
                 <td>Training Manual</td>
                 <td>May 7th, 2019</td>
                 <td>Incomplete</td>
-                <td><Link to="/empTrainManualFormPage"><Button className="btn btn-success">Start </Button></Link></td>
+                <td><Link to="/empTrainManualFormPage"><Button className="btn btn-success">Start <i class="fa fa-arrow-right"/></Button></Link></td>
               </tr>
             </tbody>
           </Table>
