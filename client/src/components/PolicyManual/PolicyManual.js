@@ -6,7 +6,7 @@ import DatePicker from "react-datepicker";
 import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
 import SignatureCanvas from 'react-signature-canvas'
 
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 
 import pdf from "./../../pdf/PolicyManual.pdf";
 import { Document, Page, pdfjs } from 'react-pdf';
@@ -94,18 +94,23 @@ class PolicyManual extends Component {
         <Container>
           <br></br>
           <Row>
-            <p>Put Text Here!</p>
+          <Card>
+              <Card.Body>
+                <h2>Please review the Policy Manual</h2>
+                <p className="pbody">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              </Card.Body>
+            </Card>
           </Row>
           <Row>
             <Col>
               <div>
-                <Document
+                {/* <Document
                   file={file}
                   onLoadSuccess={this.onDocumentLoadSuccess}
                 >
                   <Page pageNumber={pageNumber} />
                 </Document>
-                <p>Page {pageNumber} of {numPages}</p>
+                <p>Page {pageNumber} of {numPages}</p> */}
               </div>
             </Col>
             <Col>
@@ -153,7 +158,7 @@ class PolicyManual extends Component {
                       dropdownMode="select"
                     />
                   </div>
-                  <button type="submit" className="btn btn-primary">Submit</button>
+                  <button type="submit" className="btn btn-primary">Submit <i class="fa fa-arrow-right"/></button>
                 </form>
               </div>
             </Col>

@@ -91,32 +91,32 @@ We are pleased to have you joining our team. Are you ready to fall in love with 
 
                 <td>Employee Profile</td>
                 <td>May 7th, 2019</td>
-                <td>Incomplete</td>
+                <td>Not yet received</td>
                 <td><Link to="/profileFormPage"><Button className="btn btn-success">Start <i class="fa fa-arrow-right"/></Button></Link></td>
               </tr>
 
               <tr>
-                <td>W4</td>
+                <td>Form W-4</td>
                 <td>May 7th, 2019</td>
-                <td>Incomplete</td>
+                <td>Not yet received</td>
                 <td><Link to="/w4FormPage"><Button className="btn btn-success">Start <i class="fa fa-arrow-right"/></Button></Link></td>
               </tr>
               <tr>
-                <td>I-9</td>
+                <td>Form I-9</td>
                 <td>May 7th, 2019</td>
-                <td>Incomplete</td>
+                <td>Not yet received</td>
                 <td><Link to="/i9FormPage"><Button className="btn btn-success">Start <i class="fa fa-arrow-right"/></Button></Link></td>
               </tr>
               <tr>
                 <td>Policy Manual</td>
                 <td>May 7th, 2019</td>
-                <td>Incomplete</td>
+                <td>Not yet received</td>
                 <td><Link to="/policyManualFormPage"><Button className="btn btn-success">Start <i class="fa fa-arrow-right"/></Button></Link></td>
               </tr>
               <tr>
                 <td>Training Manual</td>
                 <td>May 7th, 2019</td>
-                <td>Incomplete</td>
+                <td>Not yet received</td>
                 <td><Link to="/empTrainManualFormPage"><Button className="btn btn-success">Start <i class="fa fa-arrow-right"/></Button></Link></td>
               </tr>
             </tbody>
