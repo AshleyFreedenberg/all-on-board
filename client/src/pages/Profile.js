@@ -152,7 +152,7 @@ We are pleased to have you joining our team. Are you ready to fall in love with 
                 <td>
                   {this.state.isProfileComplete
                     ? <Link to="#"><Button className="btn btn-primary">Edit <i class="fa fa-arrow-right" /></Button></Link>
-                    : <Link to="/profileFormPage"><Button className="btn btn-success">Start <i class="fa fa-checkmark-right" /></Button></Link>
+                    : <Link to="/profileFormPage"><Button className="btn btn-success">Start <i class="fa fa-arrow-right" /></Button></Link>
                   }
 
                 </td>
@@ -199,7 +199,7 @@ We are pleased to have you joining our team. Are you ready to fall in love with 
                 <td>May 7th, 2019</td>
                 <td>{this.state.isManualComplete ? <p>Received <i class="far fa-thumbs-up" /></p> : <p>Not yet received <i class="far fa-thumbs-down" /></p>}</td>
                 <td>
-                {this.state.isPolicyComplete
+                {this.state.isManualComplete
                     ? <Link to="#"><Button className="btn btn-primary">Edit <i class="fa fa-arrow-right" /></Button></Link>
                     : <Link to="/empTrainManualFormPage"><Button className="btn btn-success">Start <i class="fa fa-arrow-right" /></Button></Link>
                   }
