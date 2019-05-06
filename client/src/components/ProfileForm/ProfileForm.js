@@ -73,7 +73,8 @@ class ProfileForm extends Component {
         <Container>
           <br></br>
           <Row>
-            <p>Put Text Here!</p>
+            <p>Welcome aboard!
+            Please fill out the form below.</p>
           </Row>
           <Row>
             <Col>
