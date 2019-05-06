@@ -110,19 +110,19 @@ class ProfileForm extends Component {
                     </div>
                 
                   <div className="form-group">
-                    <label htmlFor="DOB">Date of Birth:</label>
+                    <label htmlFor="dateOfBirth">Date of Birth:</label>
                     <br></br>
                     <DatePicker className="form-control"
                       placeholder="DOB goes here..."
                       name="dateOfBirth"
                       type="text"
                       id="dateOfBirth"
-                      onChange={this.handleChangeDate}
-                      selected={this.state.startDate}
+                      selected={this.state.dateOfBirth}
                       peekNextMonth
                       showMonthDropdown
                       showYearDropdown
                       dropdownMode="select"
+                      onChange={this.handleChangeDate}
                     />
                   </div>
                   <div className="form-group">
