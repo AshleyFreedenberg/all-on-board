@@ -47,7 +47,7 @@ class Icon extends Component {
               <Card className="mt-5" style={{ border: "none", textAlign: "center" }}>
                 <Card.Img variant="top" src={icon3} className="icon-png" />
                 <Card.Body>
-                  <Card.Title className="cardTitleText">BE HAPPY</Card.Title>
+                  <Card.Title className="cardTitleText">REJOICE</Card.Title>
                   <Card.Text>
                     Because you have a partner that knows YOUR workforce.
     </Card.Text>
