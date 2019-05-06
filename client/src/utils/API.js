@@ -12,6 +12,10 @@ export default {
   setProfile: (formDataObj) => {
     return axios.post('/api/form', formDataObj);
   },
+    // route to set profile data for employee
+    updateProfile: (formDataObj) => {
+      return axios.put('/api/form', formDataObj);
+    },
   getFile: (id) => {
     return axios.get(`/api/user/${id}`);
   },
@@ -19,8 +23,11 @@ export default {
   getAllFilesOneUser: (userId) => {
     return axios.get(`/api/getallfilesoneuser/${userId}`)
   },
+<<<<<<< HEAD
   comPleted: (userId, formType) => {
     return axios.get(`/api/file/${userId}/${formType}` )
   }
+=======
+>>>>>>> 5939005e9b3ec42e31db7e5453b199b871fcaf67
 };
 
