@@ -6,8 +6,9 @@ import DatePicker from "react-datepicker";
 import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
 import SignatureCanvas from 'react-signature-canvas'
 import { Link, withRouter } from 'react-router-dom';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, } from 'react-bootstrap';
 import pdf from "./../../pdf/W4Form.pdf";
+import "./w4.css";
 import { Document, Page, pdfjs } from 'react-pdf';
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -100,7 +101,20 @@ class W4Form extends Component {
         <Container>
           <br></br>
           <Row>
-            <p>Put Text Here!</p>
+            <Col>
+            <Card>
+              <Card.Body>
+                <h2>Please complete the Form W-4<br/>Employee's Withholding Allowance Certificate</h2>
+                <p className="pbody">There are multiple pages needed to complete the Onboarding US W4 task. A W-4 wizard helps the new hire navigate through the steps:
+
+Instructions
+New Hire Information
+Withholding Elections. Note: New hires can access the IRS Withholding Calculator from Step 3 when completing the W-4 form. When they select the link, a new window/tab opens and the IRS Withholding Calculator page displays.
+Electronic Signature
+Sign and Submit W-4 (Form W-4 PDF)</p>
+              </Card.Body>
+            </Card>
+            </Col>
           </Row>
           <Row>
             <Col>
@@ -127,7 +141,7 @@ class W4Form extends Component {
                   <div className="form-group">
                     <label htmlFor="SSN">2. SSN:</label>
                     <input className="form-control"
-                      placeholder="SSN goes here..."
+                      placeholder="Social Security Number"
                       name="SSN"
                       type="text"
                       id="SSN"
@@ -209,12 +223,12 @@ class W4Form extends Component {
                       dropdownMode="select"
                     />
                   </div>
-                  <button type="submit" className="btn btn-primary">Submit</button>
+                  <button type="submit" className="btn btn-primary">Submit <i class="fa fa-arrow-right"/></button>
                 </form>
               </div>
             </Col>
           </Row>
-        </Container>;
+        </Container>
       </div>
     );
   }

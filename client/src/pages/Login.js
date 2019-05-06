@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AuthService from './../components/AuthService';
 import { Link } from 'react-router-dom';
-
+import { Button, Card } from 'react-bootstrap';
 class Login extends Component {
   constructor() {
     super();
@@ -38,30 +38,35 @@ class Login extends Component {
 
   render() {
     return (
+
       <div className="container col-md-4">
-        <h1>Login</h1>
-        <form onSubmit={this.handleFormSubmit}>
-          <div className="form-group">
-            <label htmlFor="email">Email address:</label>
-            <input className="form-control"
-              placeholder="Email goes here..."
-              name="email"
-              type="email"
-              id="email"
-              onChange={this.handleChange} />
-          </div>
-          <div className="form-group">
-            <label htmlFor="pwd">Password:</label>
-            <input className="form-control"
-              placeholder="Password goes here..."
-              name="password"
-              type="password"
-              id="pwd"
-              onChange={this.handleChange} />
-          </div>
-          <button type="submit" className="btn btn-primary">Submit</button>
-        </form>
-        <p><Link to="/signup">Go to Signup</Link></p>
+        <Card>
+          <Card.Body>
+            <h1>LOGIN</h1>
+            <hr/>
+            <form onSubmit={this.handleFormSubmit}>
+              <div className="form-group">
+                <label htmlFor="email">Email address:</label>
+                <input className="form-control"
+                  placeholder="Email address"
+                  name="email"
+                  type="email"
+                  id="email"
+                  onChange={this.handleChange} />
+              </div>
+              <div className="form-group">
+                <label htmlFor="pwd">Password:</label>
+                <input className="form-control"
+                  placeholder="Password"
+                  name="password"
+                  type="password"
+                  id="pwd"
+                  onChange={this.handleChange} />
+              </div>
+              <Button type="submit" className="btn btn-primary">Submit <i class="fa fa-arrow-right"/></Button>
+            </form>
+          </Card.Body>
+        </Card>
       </div>
 
     );

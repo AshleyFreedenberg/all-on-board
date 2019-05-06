@@ -12,12 +12,16 @@ export default {
   setProfile: (formDataObj) => {
     return axios.post('/api/form', formDataObj);
   },
+    // route to set profile data for employee
+    updateProfile: (formDataObj) => {
+      return axios.put('/api/form', formDataObj);
+    },
   getFile: (id) => {
     return axios.get(`/api/user/${id}`);
   },
 
   getAllFilesOneUser: (userId) => {
     return axios.get(`/api/getallfilesoneuser/${userId}`)
-  }
+  },
 };
 
