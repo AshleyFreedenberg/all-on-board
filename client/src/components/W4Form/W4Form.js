@@ -117,9 +117,10 @@ Sign and Submit W-4 (Form W-4 PDF)</p>
               </Card>
             </Col>
           </Row>
+         
           <Row>
-            <Col>
-              <div>
+            <Col md={6}>
+                <div style={{overflow: "auto"}}>
                 <Document
                   file={file}
                   onLoadSuccess={this.onDocumentLoadSuccess}
@@ -127,9 +128,9 @@ Sign and Submit W-4 (Form W-4 PDF)</p>
                   <Page pageNumber={pageNumber} />
                 </Document>
                 <p>Page {pageNumber} of {numPages}</p>
-              </div>
+                </div>
             </Col>
-            <Col>
+            <Col md={6}>
               <div className="container">
                 <h1>W-4 Form</h1>
                 <h4>Information needed to complete your W-4 Form</h4>
