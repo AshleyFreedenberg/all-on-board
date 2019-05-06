@@ -7,7 +7,7 @@ import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
 import "./style.css";
 import { Container, Row, Col, Form } from 'react-bootstrap';
 
-class ProfileForm extends Component {
+class ProfileFormEdit extends Component {
 
   constructor(props) {
     super(props);
@@ -17,6 +17,7 @@ class ProfileForm extends Component {
       userId: this.props.user.id,
       completed: true,
       validated: false,
+      profileFormData: {}
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -29,13 +30,26 @@ class ProfileForm extends Component {
   }
 
   componentDidMount() {
-    console.log(this.state);
+    // console.log(this.state);
     API.getUser(this.props.user.id).then(res => {
       this.setState({
         username: res.data.username,
         email: res.data.email
       })
-    });
+    })
+    
+    API.getAllFilesOneUser(this.props.user.id).then(res => {
+      for (let i = 0; i < res.data.length; i++) {
+        if (res.data[i].formType === "profile") {
+          this.setState({
+            profileFormData: res.data[i]
+          })
+          console.log(this.state.profileFormData);
+
+        }
+        
+      }
+    })
   }
 
   handleFormSubmit = event => {
@@ -47,7 +61,7 @@ class ProfileForm extends Component {
       event.stopPropagation();
     }
     this.setState({ validated: true });
-    API.setProfile(this.state).then(res => {
+    API.updateProfile(this.state).then(res => {
       console.log("Sumbit!")
       console.log(this.props.history)
       this.props.history.replace(`/profile`);
@@ -97,8 +111,9 @@ class ProfileForm extends Component {
 
                     <div className="form-group">
                       <label htmlFor="middleInitial">Middle Initial</label>
-                      <input required className="form-control"
-                        placeholder="Middle Initial goes here..."
+                      <input className="form-control"
+                      placeholder={this.state.profileFormData.middleInitial}
+                        // placeholder="Middle Initial goes here..."
                         name="middleInitial"
                         type="text"
                         id="middleInitial"
@@ -191,4 +206,4 @@ class ProfileForm extends Component {
   }
 }
 
-export default withRouter(withAuth(ProfileForm));
+export default withRouter(withAuth(ProfileFormEdit));

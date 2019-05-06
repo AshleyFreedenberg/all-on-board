@@ -23,7 +23,9 @@ import CarouselContainer from './components/CarouselContainer';
 import Footer from './components/Footer';
 import Banner from './components/Banner';
 import ProfileFormPage from './pages/ProfileFormPage';
+import ProfileFormPageEdit from './pages/ProfileFormPageEdit';
 import W4FormPage from './pages/W4FormPage';
+
 import I9FormPage from './pages/I9FormPage';
 import PolicyManualFormPage from './pages/PolicyManualFormPage';
 import EmpTrainManualFormPage from './pages/EmpTrainManualFormPage';
@@ -48,7 +50,9 @@ ReactDOM.render(
             <Route exact path="/profile" component={Banner} />
              <Route exact path="/profile" component={Profile} />
              <Route exact path="/profileFormPage" component={Banner} />
+             <Route exact path="/profileFormPageEdit" component={Banner} />
             <Route exact path="/profileFormPage" component={ProfileFormPage} />
+            <Route exact path="/profileFormPageEdit" component={ProfileFormPageEdit} />
             <Route exact path="/w4FormPage" component={Banner} />
             <Route exact path="/w4FormPage" component={W4FormPage} />
             <Route exact path="/i9FormPage" component={Banner} />
