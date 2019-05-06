@@ -76,24 +76,19 @@ class ProfileForm extends Component {
           </Row>
           <Row>
             <Col>
-              <div className="container">
+            <div className="container">
                 <h1>Profile Form</h1>
-                <Form noValidate
-                  validated={validated}
-                  onSubmit={this.handleFormSubmit}>
-                  <Form.Row>
-                    <Form.Group as={Col} md="4" controlId="validationCustom01">
-                      <Form.Label>First name</Form.Label>
-                      <Form.Control className="form-control"
-                        placeholder="First Name"
-                        name="firstName"
-                        type="text"
-                        id="firstName"
-                        onChange={this.handleChange} />
-                      <Form.Control.Feedback>
-                        Looks good!
-                          </Form.Control.Feedback>
-                    </Form.Group>
+                <form onSubmit={this.handleFormSubmit}>
+                  <div className="form-group">
+                    <label htmlFor="firstName">First Name:</label>
+                    <input className="form-control"
+                      placeholder="First name goes here..."
+                      name="firstName"
+                      type="text"
+                      id="firstName"
+                      required
+                      onChange={this.handleChange} />
+                  </div>
 
                     <div className="form-group">
                       <label htmlFor="middleInitial">Middle Initial</label>
@@ -113,7 +108,7 @@ class ProfileForm extends Component {
                         id="lastName"
                         onChange={this.handleChange} />
                     </div>
-                  </Form.Row>
+                
                   <div className="form-group">
                     <label htmlFor="DOB">Date of Birth:</label>
                     <br></br>
@@ -181,7 +176,7 @@ class ProfileForm extends Component {
                       onChange={this.handleChange} />
                   </div>
                   <button type="submit" className="btn btn-primary">Submit</button>
-                </Form>
+                </form>
               </div>
             </Col>
           </Row>
