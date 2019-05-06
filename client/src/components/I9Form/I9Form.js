@@ -7,7 +7,7 @@ import DatePicker from "react-datepicker";
 import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
 import SignatureCanvas from 'react-signature-canvas';
 import './i9style.css';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Container, Row, Col, Card,  } from 'react-bootstrap';
 
 import pdf from "./../../pdf/I9Form.pdf";
 import { Document, Page, pdfjs } from 'react-pdf';
@@ -110,8 +110,8 @@ class I9Form extends Component {
             </Card>
           </Row>
           <Row>
-            <Col>
-              <div>
+            <Col md={6}>
+              <div className="mt-5" style={{overflow: "auto"}}>
                 <Document
                   file={file}
                   onLoadSuccess={this.onDocumentLoadSuccess}
@@ -121,11 +121,11 @@ class I9Form extends Component {
                 <p>Page {pageNumber} of {numPages}</p>
               </div>
             </Col>
-            <Col>
-              <div className="container">
-                <h1>I-9 Form</h1>
-                <h4>Information needed to complete your I-9 Form</h4>
-                <hr />
+            <Col md={6}>
+              <div className="container mt-5">
+                <h1>FORM I-9</h1><hr/>
+                <h5>Information needed to complete your I-9 Form</h5>
+                <hr/>
                 <p><span className="pcompleted">First Name:</span> {this.state.firstName}</p>
                 <p><span className="pcompleted">Middle Initial: </span>{this.state.middleInitial}</p>
                 <p><span className="pcompleted">Last Name: </span>{this.state.lastName}</p>
