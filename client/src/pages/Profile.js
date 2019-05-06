@@ -40,7 +40,7 @@ class Profile extends Component {
     API.getAllFilesOneUser(this.props.user.id).then(res => {
       console.log(res)
 
-      if (res.data.length === 4) {
+      if (res.data.length === 5) {
         // console.log('works')
         this.handleShow();
       }
@@ -54,6 +54,21 @@ class Profile extends Component {
         if (res.data[i].formType === "w-4") {
           this.setState({
             isW4Complete: true
+          })
+        };
+        if (res.data[i].formType === "i-9") {
+          this.setState({
+            isI9Complete: true
+          })
+        };
+        if (res.data[i].formType === "policy") {
+          this.setState({
+            isPolicyComplete: true
+          })
+        };
+        if (res.data[i].formType === "manual") {
+          this.setState({
+            isManualComplete: true
           })
         };
       }
@@ -100,15 +115,15 @@ class Profile extends Component {
     var percentage = (100 - ((5 - this.state.filesComplete) / 5 * 100)).toFixed(0);
     return (
       <div className="profile-page">
-       
+
 
         <Modal show={this.state.show} onHide={this.handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+            <Modal.Title>Congratulations {this.state.username}!</Modal.Title>
           </Modal.Header>
-          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+          <Modal.Body>You've completed all of the required forms and you're ready to begin working for Chardo Brewing Co!</Modal.Body>
           <Modal.Footer>
-      
+
           </Modal.Footer>
         </Modal>
 
@@ -154,10 +169,10 @@ We are pleased to have you joining our team. Are you ready to fall in love with 
 
                 <td>Employee Profile</td>
                 <td>May 7th, 2019</td>
-                <td>{this.state.isProfileComplete ? <p>Received</p> : <p>Not yet received</p>}</td>
+                <td>{this.state.isProfileComplete ? <p>Received <i class="far fa-thumbs-up" /></p> : <p>Not yet received <i class="far fa-thumbs-down" /></p>}</td>
                 <td>
                   {this.state.isProfileComplete
-                    ? <Link to="/profileFormPageEdit"><Button className="btn btn-primary">Edit <i class="fa fa-checkmark-right" /></Button></Link>
+                    ? <Link to="#"><Button className="btn btn-primary">Edit <i class="fa fa-arrow-right" /></Button></Link>
                     : <Link to="/profileFormPage"><Button className="btn btn-success">Start <i class="fa fa-checkmark-right" /></Button></Link>
                   }
 
@@ -167,26 +182,50 @@ We are pleased to have you joining our team. Are you ready to fall in love with 
               <tr>
                 <td>Form W-4</td>
                 <td>May 7th, 2019</td>
-                <td>{this.state.isW4Complete ? <p>Received</p> : <p>Not yet received</p>}</td>
-                <td><Link to="/w4FormPage"><Button className="btn btn-success">Start <i class="fa fa-arrow-right" /></Button></Link></td>
+                <td>{this.state.isW4Complete ? <p>Received <i class="far fa-thumbs-up" /></p> : <p>Not yet received <i class="far fa-thumbs-down" /></p>}</td>
+                <td>
+                  {this.state.isW4Complete
+                    ? <Link to="#"><Button className="btn btn-primary">Edit <i class="fa fa-arrow-right" /></Button></Link>
+                    : <Link to="/w4FormPage"><Button className="btn btn-success">Start <i class="fa fa-arrow-right" /></Button></Link>
+                  }
+                  {/* <Link to="/w4FormPage"><Button className="btn btn-success">Start <i class="fa fa-arrow-right" /></Button></Link> */}
+                </td>
               </tr>
               <tr>
                 <td>Form I-9</td>
                 <td>May 7th, 2019</td>
-                <td>{this.state.isI9Complete ? <p>Received</p> : <p>Not yet received</p>}</td>
-                <td><Link to="/i9FormPage"><Button className="btn btn-success">Start <i class="fa fa-arrow-right" /></Button></Link></td>
+                <td>{this.state.isI9Complete ? <p>Received <i class="far fa-thumbs-up" /></p> : <p>Not yet received <i class="far fa-thumbs-down" /></p>}</td>
+                <td>
+                  {this.state.isI9Complete
+                    ? <Link to="#"><Button className="btn btn-primary">Edit <i class="fa fa-arrow-right" /></Button></Link>
+                    : <Link to="/i9FormPage"><Button className="btn btn-success">Start <i class="fa fa-arrow-right" /></Button></Link>
+                  }
+                  {/* <Link to="/i9FormPage"><Button className="btn btn-success">Start <i class="fa fa-arrow-right" /></Button></Link> */}
+                </td>
               </tr>
               <tr>
                 <td>Policy Manual</td>
                 <td>May 7th, 2019</td>
-                <td>{this.state.isPolicyComplete ? <p>Received</p> : <p>Not yet received</p>}</td>
-                <td><Link to="/policyManualFormPage"><Button className="btn btn-success">Start <i class="fa fa-arrow-right" /></Button></Link></td>
+                <td>{this.state.isPolicyComplete ? <p>Received <i class="far fa-thumbs-up" /></p> : <p>Not yet received <i class="far fa-thumbs-down" /></p>}</td>
+                <td>
+                  {this.state.isPolicyComplete
+                    ? <Link to="#"><Button className="btn btn-primary">Edit <i class="fa fa-arrow-right" /></Button></Link>
+                    : <Link to="/policyManualFormPage"><Button className="btn btn-success">Start <i class="fa fa-arrow-right" /></Button></Link>
+                  }
+                  {/* <Link to="/policyManualFormPage"><Button className="btn btn-success">Start <i class="fa fa-arrow-right" /></Button></Link> */}
+                </td>
               </tr>
               <tr>
                 <td>Training Manual</td>
                 <td>May 7th, 2019</td>
-                <td>{this.state.isManualComplete ? <p>Received</p> : <p>Not yet received</p>}</td>
-                <td><Link to="/empTrainManualFormPage"><Button className="btn btn-success">Start <i class="fa fa-arrow-right" /></Button></Link></td>
+                <td>{this.state.isManualComplete ? <p>Received <i class="far fa-thumbs-up" /></p> : <p>Not yet received <i class="far fa-thumbs-down" /></p>}</td>
+                <td>
+                {this.state.isPolicyComplete
+                    ? <Link to="#"><Button className="btn btn-primary">Edit <i class="fa fa-arrow-right" /></Button></Link>
+                    : <Link to="/empTrainManualFormPage"><Button className="btn btn-success">Start <i class="fa fa-arrow-right" /></Button></Link>
+                  }
+                  {/* <Link to="/empTrainManualFormPage"><Button className="btn btn-success">Start <i class="fa fa-arrow-right" /></Button></Link> */}
+                </td>
               </tr>
             </tbody>
           </Table>
