@@ -96,7 +96,7 @@ class EmpTrainManual extends Component {
         <Container>
           <br></br>
           <Row>
-            <p>Put Text Here!</p>
+            <p>Please carefully read the following employee training manual and sign below to confirm that you have done so.</p>
           </Row>
           <Row>
             <Col>

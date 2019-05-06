@@ -65,27 +65,27 @@ class Profile extends Component {
       console.log(this.state.filesComplete);
     });
 
-    this.checkcomPleted();
+    // this.checkcomPleted();
 
   }
-  checkcomPleted = event => {
-    API
-      .comPleted(this.props.user.id, "profile")
-      .then(res => {
-        console.log(res.data)
+//   checkcomPleted = event => {
+//     API
+//       .comPleted(this.props.user.id, "profile")
+//       .then(res => {
+//         console.log(res.data)
       
-    if (res.data.completed === true) {
-      this.setState({
-        completed: "complete"
-      })
-    }
-    else {
-      this.setState({
-      completed: "incomplete"
-     })
-  }
-})
-  }
+//     if (res.data.completed === true) {
+//       this.setState({
+//         completed: "complete"
+//       })
+//     }
+//     else {
+//       this.setState({
+//       completed: "incomplete"
+//      })
+//   }
+// })
+//   }
   handleChange = event => {
     const { name, value } = event.target;
     // const name = event.target.name;
