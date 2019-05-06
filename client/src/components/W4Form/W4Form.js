@@ -144,6 +144,7 @@ Sign and Submit W-4 (Form W-4 PDF)</p>
                     <input className="form-control"
                       placeholder="Social Security Number"
                       name="SSN"
+                      required
                       type="text"
                       id="SSN"
                       onChange={this.handleChange} />
@@ -154,6 +155,7 @@ Sign and Submit W-4 (Form W-4 PDF)</p>
                       <select className="form-control"
                         name="married"
                         type="married"
+                        required
                         id="married"
                         onChange={this.handleChange}>
                         <option>Select</option>
@@ -166,7 +168,8 @@ Sign and Submit W-4 (Form W-4 PDF)</p>
                   <div className="form-group">
                     <label htmlFor="numberofAllowances"> 5. Total number of allowances you’re claiming:</label>
                     <input className="form-control"
-                      placeholder="Allowance Number goes here..."
+                    required
+                      placeholder="Allowance Number "
                       name="numberofAllowances"
                       type="text"
                       id="numberofAllowances"
@@ -175,6 +178,7 @@ Sign and Submit W-4 (Form W-4 PDF)</p>
                   <div className="form-group">
                     <label htmlFor="additionalAmount"> 6. Additional amount, if any, you want withheld from each paycheck:</label>
                     <input className="form-control"
+                    required
                       placeholder="Additional amount, goes here... (0.00 format)"
                       name="additionalAmount"
                       type="text"
@@ -187,6 +191,7 @@ Sign and Submit W-4 (Form W-4 PDF)</p>
                       <select className="form-control"
                         name="exempt"
                         type="text"
+                        required
                         id="exempt"
                         onChange={this.handleChange}>
                         <option>Select</option>

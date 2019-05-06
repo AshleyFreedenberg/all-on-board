@@ -100,9 +100,9 @@ class Profile extends Component {
 
         <Modal show={this.state.show} onHide={this.handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Congratulations {this.state.username}!</Modal.Title>
+            <Modal.Title>Congratulations {this.state.username}!!!</Modal.Title>
           </Modal.Header>
-          <Modal.Body>You've completed all of the required forms and you're ready to begin working for Chardo Brewing Co!</Modal.Body>
+          <Modal.Body><img src="https://media.giphy.com/media/slOhiKAVFgwr6/giphy.gif" alt="" /><br/>You've completed all of the required forms and you're ready to begin working for Chardo Brewing Co!</Modal.Body>
           <Modal.Footer>
 
           </Modal.Footer>
