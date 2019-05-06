@@ -57,6 +57,7 @@ class W4Form extends Component {
         email: res.data[0].email,
         firstName: res.data[0].firstName,
         middleInitial: res.data[0].middleInitial,
+        SSN: res.data[0].SSN,
         lastName: res.data[0].lastName,
         address: res.data[0].address
       })
@@ -102,18 +103,18 @@ class W4Form extends Component {
           <br></br>
           <Row>
             <Col>
-            <Card>
-              <Card.Body>
-                <h2>Please complete the Form W-4<br/>Employee's Withholding Allowance Certificate</h2>
-                <p className="pbody">There are multiple pages needed to complete the Onboarding US W4 task. A W-4 wizard helps the new hire navigate through the steps:
-
-Instructions
-New Hire Information
-Withholding Elections. Note: New hires can access the IRS Withholding Calculator from Step 3 when completing the W-4 form. When they select the link, a new window/tab opens and the IRS Withholding Calculator page displays.
-Electronic Signature
+              <Card>
+                <Card.Body>
+                  <h2>Please complete the Form W-4<br />Employee's Withholding Allowance Certificate</h2>
+                  <p className="pbody">There are multiple pages needed to complete the Onboarding US W4 task. A W-4 wizard helps the new hire navigate through the steps:
+  
+  Instructions
+  New Hire Information
+  Withholding Elections. Note: New hires can access the IRS Withholding Calculator from Step 3 when completing the W-4 form. When they select the link, a new window/tab opens and the IRS Withholding Calculator page displays.
+  Electronic Signature
 Sign and Submit W-4 (Form W-4 PDF)</p>
-              </Card.Body>
-            </Card>
+                </Card.Body>
+              </Card>
             </Col>
           </Row>
          
@@ -229,7 +230,7 @@ Sign and Submit W-4 (Form W-4 PDF)</p>
                       dropdownMode="select"
                     />
                   </div>
-                  <button type="submit" className="btn btn-primary">Submit <i class="fa fa-arrow-right"/></button>
+                  <button type="submit" className="btn btn-primary">Submit <i class="fa fa-arrow-right" /></button>
                 </form>
               </div>
             </Col>
