@@ -19,11 +19,12 @@ class ProfileForm extends Component {
       completed: true,
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
   handleChangeDate = date => {
     this.setState({
-      startDate: date
+      dateOfBirth: date
     });
   }
 
@@ -43,6 +44,8 @@ class ProfileForm extends Component {
     console.log(this.state);
     API.setProfile(this.state).then(res => {
       console.log("Sumbit!")
+      console.log(this.props.history)
+      this.props.history.replace(`/profile`);
     })
   };
 
@@ -61,6 +64,10 @@ class ProfileForm extends Component {
     return (
       <div>
         <Container>
+        <br></br>
+          <Row>
+            <p>Put Text Here!</p>
+          </Row>
           <Row>
             <Col>
               <div className="container">
@@ -98,10 +105,9 @@ class ProfileForm extends Component {
                     <br></br>
                     <DatePicker className="form-control"
                       placeholder="DOB goes here..."
-                      name="DOB"
+                      name="dateOfBirth"
                       type="text"
-                      id="DOB"
-                      onChange={this.handleChange}
+                      id="dateOfBirth"
                       onChange={this.handleChangeDate}
                       selected={this.state.startDate}
                       peekNextMonth

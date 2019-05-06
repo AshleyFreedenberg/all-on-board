@@ -10,3 +10,8 @@
     display: block;
     margin: auto;
 }
+
+.cardTitleText{
+    font-size: 40px;
+    font-family: 'Lato', sans-serif;
+}

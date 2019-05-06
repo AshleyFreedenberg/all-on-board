@@ -23,7 +23,7 @@ class CarouselContainer extends Component {
                             alt="First slide"
                         />
                         <Carousel.Caption>
-                            <h3>PAPERWORK SUCKS</h3>
+                            <h3>DON'T LET PAPERWORK SINK YOU</h3>
                             <p>Manage compliance, easily onboard and engage new employees</p>
                         </Carousel.Caption>
                     </Carousel.Item>
