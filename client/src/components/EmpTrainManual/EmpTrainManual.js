@@ -99,6 +99,11 @@ class EmpTrainManual extends Component {
             <p>Please carefully read the following employee training manual and sign below to confirm that you have done so.</p>
           </Row>
           <Row>
+
+          <iframe src="https://player.vimeo.com/video/216405039?title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<p><a href="https://vimeo.com/216405039">[VIDEO TRAINING] Dr. Sabrina&#039;s 5 Secrets to Exceptional Employee Performance</a> from <a href="https://vimeo.com/user898096">Dr. Sabrina Starling</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+    </Row>
+          <Row>
             <Col>
               <div>
                 <Document
