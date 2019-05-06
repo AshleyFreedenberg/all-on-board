@@ -11,6 +11,8 @@ import { Container, Row, Col, Card } from 'react-bootstrap';
 
 import pdf from "./../../pdf/I9Form.pdf";
 import { Document, Page, pdfjs } from 'react-pdf';
+import Moment from 'react-moment';
+
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 class I9Form extends Component {
@@ -59,7 +61,6 @@ class I9Form extends Component {
         lastName: res.data[0].lastName,
         address: res.data[0].address,
         dateOfBirth: res.data[0].dateOfBirth,
-        SSN: res.data[0].SSN,
         email: res.data[0].email,
         phone: res.data[0].phone
       })
@@ -129,8 +130,7 @@ class I9Form extends Component {
                 <p><span className="pcompleted">Middle Initial: </span>{this.state.middleInitial}</p>
                 <p><span className="pcompleted">Last Name: </span>{this.state.lastName}</p>
                 <p><span className="pcompleted">Address: </span>{this.state.address}</p>
-                <p><span className="pcompleted">DOB: </span>{this.state.dateOfBirth}</p>
-                <p><span className="pcompleted">SSN: </span>{this.state.SSN}</p>
+                <p><span className="pcompleted">DOB: </span><Moment format="MM/DD/YYYY">{this.state.dateOfBirth}</Moment></p>
                 <p><span className="pcompleted">Email: </span>{this.state.email}</p>
                 <p><span className="pcompleted">Phone: </span>{this.state.phone}</p>
                 <hr />
