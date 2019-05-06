@@ -102,18 +102,18 @@ class PolicyManual extends Component {
             </Card>
           </Row>
           <Row>
-            <Col>
-              <div>
-                {/* <Document
+            <Col md={6}>
+              <div style={{overflow: "auto"}}>
+                <Document
                   file={file}
                   onLoadSuccess={this.onDocumentLoadSuccess}
                 >
                   <Page pageNumber={pageNumber} />
                 </Document>
-                <p>Page {pageNumber} of {numPages}</p> */}
+                <p>Page {pageNumber} of {numPages}</p>
               </div>
             </Col>
-            <Col>
+            <Col md={6}>
               <div className="container">
                 <h1>Policy Manual</h1>
                 <h4>Information needed to complete your Policy Manual Form</h4>

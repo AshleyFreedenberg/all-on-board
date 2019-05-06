@@ -132,13 +132,13 @@ Sign and Submit W-4 (Form W-4 PDF)</p>
             </Col>
             <Col md={6}>
               <div className="container">
-                <h1>W-4 Form</h1>
-                <h4>Information needed to complete your W-4 Form</h4>
+                <h1>FORM W-4</h1><hr/>
+                <h5>Information needed to complete your W-4 Form</h5><hr/>
                 <p>First Name: {this.state.firstName}</p>
                 <p>Middle Initial: {this.state.middleInitial}</p>
                 <p>Last Name: {this.state.lastName}</p>
                 <p>Address: {this.state.address}</p>
-
+                <hr/>
                 <form onSubmit={this.handleFormSubmit}>
                   <div className="form-group">
                     <label htmlFor="SSN">2. SSN:</label>

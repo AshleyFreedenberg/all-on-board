@@ -10,5 +10,10 @@ h2 {
 
 h5 {
     font-family: 'Oswald', sans-serif;
-    text-align: center;
+    text-align: left;
+}
+
+h6 {
+    font-family: 'Oswald', sans-serif;
+    text-align: left;
 }
