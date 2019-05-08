@@ -4,11 +4,11 @@ import API from '../../utils/API';
 import DatePicker from "react-datepicker";
 import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
 import SignatureCanvas from 'react-signature-canvas';
-import { Button } from 'react-bootstrap';
+import { Button, Card} from 'react-bootstrap';
 import { Link, withRouter } from 'react-router-dom';
 
 import { Container, Row, Col } from 'react-bootstrap';
-
+import "./emptrainmanual.css";
 import pdf from "./../../pdf/TrainingManual.pdf";
 import { Document, Page, pdfjs } from 'react-pdf';
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
@@ -96,11 +96,16 @@ class EmpTrainManual extends Component {
         <Container>
           <br></br>
           <Row>
-            <p>Put Text Here!</p>
+          <Card>
+              <Card.Body>
+                <h2>Please review the Employee Training Manual</h2>
+                <p className="pbody">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              </Card.Body>
+            </Card>
           </Row>
           <Row>
-            <Col>
-              <div>
+            <Col md={6}>
+              <div className="mt-5" style={{ overflow: "auto" }}>
                 <Document
                   file={file}
                   onLoadSuccess={this.onDocumentLoadSuccess}
@@ -110,12 +115,12 @@ class EmpTrainManual extends Component {
                 <p>Page {pageNumber} of {numPages}</p>
               </div>
             </Col>
-            <Col>
-              <div className="container">
-                <h1>Employee Training Manual</h1>
-                <h4>Information needed to complete your Employee Training Manual Form</h4>
-                <p>First Name: {this.state.firstName}</p>
-                <p>Last Name: {this.state.lastName}</p>
+            <Col md={6}>
+              <div className="container mt-5">
+                <h1>EMPLOYEE TRAINING MANUAL</h1>
+                <h5>Information needed to complete your Employee Training Manual Form</h5>
+                <p><span className="pcompleted">First Name:</span> {this.state.firstName}</p>
+                <p><span className="pcompleted">Last Name:</span> {this.state.lastName}</p>
 
                 <form onSubmit={this.handleFormSubmit}>
                   <label>

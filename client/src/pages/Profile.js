@@ -100,9 +100,9 @@ class Profile extends Component {
 
         <Modal show={this.state.show} onHide={this.handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Congratulations {this.state.username}!!!</Modal.Title>
+            <Modal.Title><h2>Congratulations {this.state.username}!</h2></Modal.Title>
           </Modal.Header>
-          <Modal.Body><img src="https://media.giphy.com/media/slOhiKAVFgwr6/giphy.gif" alt="" /><br/>You've completed all of the required forms and you're ready to begin working for Chardo Brewing Co!</Modal.Body>
+          <Modal.Body><img src="https://media.giphy.com/media/slOhiKAVFgwr6/giphy.gif" alt="" /><br /><hr />You've completed all of the required forms and you're ready to begin working for R.O.J.A Brewing Co!</Modal.Body>
           <Modal.Footer>
 
           </Modal.Footer>
@@ -112,10 +112,10 @@ class Profile extends Component {
           <hr />
           <h1>Welcome Aboard, {this.state.username}!</h1>
           <p className="pbody">
-            Welcome to Chardo Brewing Co!
+            Welcome to R.O.J.A  Brewing Co!
 We are pleased to have you joining our team. Are you ready to fall in love with your new job and meet your great new teammates?<br /><br />
 
-            I hope you are, because it’s going down, your first day on the new job will take place on May 7, 2019. We’ll be expecting you at 12:00pm at Chardo Brewing Co home office.<br /><br />
+            I hope you are, because it’s going down, your first day on the new job will take place on May 7, 2019. We’ll be expecting you at 12:00pm at R.O.J.A  Brewing Co home office.<br /><br />
 
             We planned your first day in order to help you settle in easily but first we need you to complete the onboarding process. Before your first day, please have the forms below submitted.
 
@@ -199,7 +199,7 @@ We are pleased to have you joining our team. Are you ready to fall in love with 
                 <td>May 7th, 2019</td>
                 <td>{this.state.isManualComplete ? <p>Received <i class="far fa-thumbs-up" /></p> : <p>Not yet received <i class="far fa-thumbs-down" /></p>}</td>
                 <td>
-                {this.state.isManualComplete
+                  {this.state.isManualComplete
                     ? <Link to="#"><Button className="btn btn-primary">Edit <i class="fa fa-arrow-right" /></Button></Link>
                     : <Link to="/empTrainManualFormPage"><Button className="btn btn-success">Start <i class="fa fa-arrow-right" /></Button></Link>
                   }

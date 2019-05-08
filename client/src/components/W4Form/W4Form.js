@@ -120,7 +120,7 @@ Sign and Submit W-4 (Form W-4 PDF)</p>
          
           <Row>
             <Col md={6}>
-                <div style={{overflow: "auto"}}>
+                <div className="mt-5" style={{overflow: "auto"}}>
                 <Document
                   file={file}
                   onLoadSuccess={this.onDocumentLoadSuccess}
@@ -131,14 +131,14 @@ Sign and Submit W-4 (Form W-4 PDF)</p>
                 </div>
             </Col>
             <Col md={6}>
-              <div className="container">
-                <h1>W-4 Form</h1>
-                <h4>Information needed to complete your W-4 Form</h4>
-                <p>First Name: {this.state.firstName}</p>
-                <p>Middle Initial: {this.state.middleInitial}</p>
-                <p>Last Name: {this.state.lastName}</p>
-                <p>Address: {this.state.address}</p>
-
+              <div className="container mt-5">
+                <h1>FORM W-4</h1><hr/>
+                <h5>Information needed to complete your W-4 Form</h5><hr/>
+                <p><span className="pcompleted">First Name:</span> {this.state.firstName}</p>
+                <p><span className="pcompleted">Middle Initial:</span> {this.state.middleInitial}</p>
+                <p><span className="pcompleted">Last Name:</span> {this.state.lastName}</p>
+                <p><span className="pcompleted">Address:</span> {this.state.address}</p>
+                <hr/>
                 <form onSubmit={this.handleFormSubmit}>
                   <div className="form-group">
                     <label htmlFor="SSN">2. SSN:</label>
