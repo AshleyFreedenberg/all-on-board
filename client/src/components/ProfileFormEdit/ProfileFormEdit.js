@@ -7,7 +7,7 @@ import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
 import "./style.css";
 import { Container, Row, Col, Form } from 'react-bootstrap';
 
-class ProfileForm extends Component {
+class ProfileFormEdit extends Component {
 
   constructor(props) {
     super(props);
@@ -17,6 +17,7 @@ class ProfileForm extends Component {
       userId: this.props.user.id,
       completed: true,
       validated: false,
+      profileFormData: {}
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -29,13 +30,26 @@ class ProfileForm extends Component {
   }
 
   componentDidMount() {
-    console.log(this.state);
+    // console.log(this.state);
     API.getUser(this.props.user.id).then(res => {
       this.setState({
         username: res.data.username,
         email: res.data.email
       })
-    });
+    })
+    
+    API.getAllFilesOneUser(this.props.user.id).then(res => {
+      for (let i = 0; i < res.data.length; i++) {
+        if (res.data[i].formType === "profile") {
+          this.setState({
+            profileFormData: res.data[i]
+          })
+          console.log(this.state.profileFormData);
+
+        }
+        
+      }
+    })
   }
 
   handleFormSubmit = event => {
@@ -47,7 +61,7 @@ class ProfileForm extends Component {
       event.stopPropagation();
     }
     this.setState({ validated: true });
-    API.setProfile(this.state).then(res => {
+    API.updateProfile(this.state).then(res => {
       console.log("Sumbit!")
       console.log(this.props.history)
       this.props.history.replace(`/profile`);
@@ -76,24 +90,30 @@ class ProfileForm extends Component {
           </Row>
           <Row>
             <Col>
-            <div className="container">
+              <div className="container">
                 <h1>Profile Form</h1>
-                <form onSubmit={this.handleFormSubmit}>
-                  <div className="form-group">
-                    <label htmlFor="firstName">First Name:</label>
-                    <input className="form-control"
-                      placeholder="First name goes here..."
-                      name="firstName"
-                      type="text"
-                      id="firstName"
-                      required
-                      onChange={this.handleChange} />
-                  </div>
+                <Form noValidate
+                  validated={validated}
+                  onSubmit={this.handleFormSubmit}>
+                  <Form.Row>
+                    <Form.Group as={Col} md="4" controlId="validationCustom01">
+                      <Form.Label>First name</Form.Label>
+                      <Form.Control className="form-control"
+                        placeholder="First Name"
+                        name="firstName"
+                        type="text"
+                        id="firstName"
+                        onChange={this.handleChange} />
+                      <Form.Control.Feedback>
+                        Looks good!
+                          </Form.Control.Feedback>
+                    </Form.Group>
 
                     <div className="form-group">
                       <label htmlFor="middleInitial">Middle Initial</label>
-                      <input required className="form-control"
-                        placeholder="Middle Initial goes here..."
+                      <input className="form-control"
+                      placeholder={this.state.profileFormData.middleInitial}
+                        // placeholder="Middle Initial goes here..."
                         name="middleInitial"
                         type="text"
                         id="middleInitial"
@@ -108,21 +128,21 @@ class ProfileForm extends Component {
                         id="lastName"
                         onChange={this.handleChange} />
                     </div>
-                
+                  </Form.Row>
                   <div className="form-group">
-                    <label htmlFor="dateOfBirth">Date of Birth:</label>
+                    <label htmlFor="DOB">Date of Birth:</label>
                     <br></br>
                     <DatePicker className="form-control"
                       placeholder="DOB goes here..."
                       name="dateOfBirth"
                       type="text"
                       id="dateOfBirth"
-                      selected={this.state.dateOfBirth}
+                      onChange={this.handleChangeDate}
+                      selected={this.state.startDate}
                       peekNextMonth
                       showMonthDropdown
                       showYearDropdown
                       dropdownMode="select"
-                      onChange={this.handleChangeDate}
                     />
                   </div>
                   <div className="form-group">
@@ -176,7 +196,7 @@ class ProfileForm extends Component {
                       onChange={this.handleChange} />
                   </div>
                   <button type="submit" className="btn btn-primary">Submit</button>
-                </form>
+                </Form>
               </div>
             </Col>
           </Row>
@@ -186,4 +206,4 @@ class ProfileForm extends Component {
   }
 }
 
-export default withRouter(withAuth(ProfileForm));
+export default withRouter(withAuth(ProfileFormEdit));

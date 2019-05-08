@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import AuthService from './../components/AuthService';
 import API from './../utils/API';
+import { Button, Card } from 'react-bootstrap';
+import './style.css'
 
 class Signup extends Component {
   constructor() {
@@ -37,14 +39,16 @@ class Signup extends Component {
 
   render() {
     return (
-      <div className="container col-md-4">
-
-        <h1>Sign Up</h1>
+      <div className="container col-md-4 signup-bg">
+<Card>
+  <Card.Body>
+        <h1>SIGN UP</h1>
+        <hr />
         <form onSubmit={this.handleFormSubmit}>
           <div className="form-group">
             <label htmlFor="username">Username:</label>
             <input className="form-control"
-              placeholder="Username goes here..."
+              placeholder="Username"
               name="username"
               type="text"
               id="username"
@@ -53,7 +57,7 @@ class Signup extends Component {
           <div className="form-group">
             <label htmlFor="email">Email address:</label>
             <input className="form-control"
-              placeholder="Email goes here..."
+              placeholder="Email address"
               name="email"
               type="email"
               id="email"
@@ -62,15 +66,16 @@ class Signup extends Component {
           <div className="form-group">
             <label htmlFor="pwd">Password:</label>
             <input className="form-control"
-              placeholder="Password goes here..."
+              placeholder="Password"
               name="password"
               type="password"
               id="pwd"
               onChange={this.handleChange} />
           </div>
-          <button type="submit" className="btn btn-primary">Submit</button>
+          <Button type="submit" className="btn btn-primary">Submit <i class="fa fa-arrow-right"/></Button>
         </form>
-        <p><Link to="/login">Go to Login</Link></p>
+        </Card.Body>
+        </Card>
       </div>
     );
   }

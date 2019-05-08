@@ -5,12 +5,14 @@ import { Button } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
 import DatePicker from "react-datepicker";
 import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
-import SignatureCanvas from 'react-signature-canvas'
-
-import { Container, Row, Col } from 'react-bootstrap';
+import SignatureCanvas from 'react-signature-canvas';
+import './i9style.css';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 
 import pdf from "./../../pdf/I9Form.pdf";
 import { Document, Page, pdfjs } from 'react-pdf';
+import Moment from 'react-moment';
+
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 class I9Form extends Component {
@@ -52,13 +54,13 @@ class I9Form extends Component {
     });
 
     API.getAllFilesOneUser(this.props.user.id).then(res => {
+      console.log(res.data[0])
       this.setState({
         firstName: res.data[0].firstName,
         middleInitial: res.data[0].middleInitial,
         lastName: res.data[0].lastName,
         address: res.data[0].address,
         dateOfBirth: res.data[0].dateOfBirth,
-        SSN: res.data[0].SSN,
         email: res.data[0].email,
         phone: res.data[0].phone
       })
@@ -98,31 +100,40 @@ class I9Form extends Component {
     return (
       <div>
         <Container>
+          <br></br>
+          <Row>
+            <Card>
+              <Card.Body>
+                <h2>Please complete the Form I-9</h2>
+                <p className="pbody">Form I-9 is used for verifying the identity and employment authorization of individuals hired for employment in the United States. All U.S. employers must ensure proper completion of Form I-9 for each individual they hire for employment in the United States. This includes citizens and noncitizens. Both employees and employers (or authorized representatives of the employer) must complete the form. On the form, an employee must attest to his or her employment authorization. </p>
+              </Card.Body>
+            </Card>
+          </Row>
           <Row>
             <Col>
-            <div>
-              <Document
-                file={file}
-                onLoadSuccess={this.onDocumentLoadSuccess}
-              >
-                <Page pageNumber={pageNumber} />
-              </Document>
-              <p>Page {pageNumber} of {numPages}</p>
-            </div>
+              <div>
+                <Document
+                  file={file}
+                  onLoadSuccess={this.onDocumentLoadSuccess}
+                >
+                  <Page pageNumber={pageNumber} />
+                </Document>
+                <p>Page {pageNumber} of {numPages}</p>
+              </div>
             </Col>
             <Col>
               <div className="container">
                 <h1>I-9 Form</h1>
                 <h4>Information needed to complete your I-9 Form</h4>
-                <p>First Name: {this.state.firstName}</p>
-                <p>Middle Initial: {this.state.middleInitial}</p>
-                <p>Last Name: {this.state.lastName}</p>
-                <p>Address: {this.state.address}</p>
-                <p>DOB: {this.state.dateOfBirth}</p>
-                <p>SSN: {this.state.SSN}</p>
-                <p>Email: {this.state.email}</p>
-                <p>Phone: {this.state.phone}</p>
-
+                <hr />
+                <p><span className="pcompleted">First Name:</span> {this.state.firstName}</p>
+                <p><span className="pcompleted">Middle Initial: </span>{this.state.middleInitial}</p>
+                <p><span className="pcompleted">Last Name: </span>{this.state.lastName}</p>
+                <p><span className="pcompleted">Address: </span>{this.state.address}</p>
+                <p><span className="pcompleted">DOB: </span><Moment format="MM/DD/YYYY">{this.state.dateOfBirth}</Moment></p>
+                <p><span className="pcompleted">Email: </span>{this.state.email}</p>
+                <p><span className="pcompleted">Phone: </span>{this.state.phone}</p>
+                <hr />
                 <form onSubmit={this.handleFormSubmit}>
                   <div className="form-group">
                     <label htmlFor="citizenship">I attest, under penalty of perjury, that I am:
@@ -160,7 +171,6 @@ class I9Form extends Component {
                       name="date"
                       type="text"
                       id="date"
-                      onChange={this.handleChange}
                       onChange={this.handleChangeDate}
                       selected={this.state.startDate}
                       peekNextMonth

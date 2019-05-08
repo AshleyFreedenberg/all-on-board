@@ -1,3 +1,17 @@
 .foot-padding {
-    margin-top: 100px;
+    margin-top: 20px;
+  
 }
+
+.footerlogo
+{
+  width:25px;
+  height:17px;
+}
+
+.footerText{
+    font-size: 15px;
+    font-family: 'Raleway', sans-serif;
+    color: #131139;
+  
+  }
